@@ -60,7 +60,7 @@ root.mainloop()
 ```
 
 ## Bugs
-Tk isn't really good at displaying `png` images, so if your program is slow due to the theme, please check out the [gif-based branch!](https://github.com/rdbende/Sun-Valley-ttk-theme/blob/gif-based/)
+Tk isn't really good at displaying `png` images, so if your program is slow due to the theme, please check out the [gif-based branch!](https://github.com/rdbende/Sun-Valley-ttk-theme/tree/gif-based/)
 
 ## Examples
 I made a separate repo for the examples: [Sun-Valley-ttk-examples](https://github.com/rdbende/Sun-Valley-ttk-examples). 
