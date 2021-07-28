@@ -49,7 +49,7 @@ def change_theme():
         # Set light theme
         root.tk.call("set_theme", "light")
     else:
-        # Set light theme
+        # Set dark theme
         root.tk.call("set_theme", "dark")
 
 # Remember, you have to use ttk widgets
