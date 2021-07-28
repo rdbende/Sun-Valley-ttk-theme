@@ -44,7 +44,7 @@ root.tk.call("source", "sun-valley.tcl")
 root.tk.call("set_theme", "light")
 
 def change_theme():
-    # NOTE: The theme's real name is sun-valley-mode
+    # NOTE: The theme's real name is sun-valley-<mode>
     if root.tk.call("ttk::style", "theme", "use") == "sun-valley-dark":
         # Set light theme
         root.tk.call("set_theme", "light")
@@ -53,14 +53,15 @@ def change_theme():
         root.tk.call("set_theme", "dark")
 
 # Remember, you have to use ttk widgets
-button = ttk.Button(big_frame, text="change theme!", command=change_theme)
+button = ttk.Button(big_frame, text="Change theme!", command=change_theme)
 button.pack()
 
 root.mainloop()
 ```
 
 ## Bugs
-Tk isn't really good at displaying `png` images, so if your program is slow due to the theme, please check out the [gif-based branch!](https://github.com/rdbende/Sun-Valley-ttk-theme/tree/gif-based/)
+- Tk isn't really good at displaying `png` images, so if your program is laggy with the theme, please check out the [gif-based branch!](https://github.com/rdbende/Sun-Valley-ttk-theme/tree/gif-based/)
+- When you change the theme, the window resizes. This is a quite strange bug that applies to all ttk themes. 
 
 ## Examples
 I made a separate repo for the examples: [Sun-Valley-ttk-examples](https://github.com/rdbende/Sun-Valley-ttk-examples). 
