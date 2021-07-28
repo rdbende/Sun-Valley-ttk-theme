@@ -17,8 +17,8 @@ that makes this a good solution is that normally switching between light and dar
 and the colors are incorrect.
 
 ```python
-# Just simply import the sun_valley.tcl file
-widget.tk.call("source", "sun_valley.tcl")
+# Just simply import the sun-valley.tcl file
+widget.tk.call("source", "sun-valley.tcl")
 
 # Then set the theme you want with the set_theme procedure
 widget.tk.call("set_theme", "light")
