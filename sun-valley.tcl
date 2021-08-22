@@ -1,7 +1,7 @@
 # Copyright © 2021 rdbende <rdbende@gmail.com>
 
-source theme/light.tcl
-source theme/dark.tcl
+source [file join [file dirname [info script]] theme light.tcl]
+source [file join [file dirname [info script]] theme dark.tcl]
 
 option add *tearOff 0
 
@@ -45,6 +45,7 @@ proc set_theme {mode} {
         option add *font [ttk::style lookup . -font]
         option add *Treeview.show tree
         option add *Menu.selectcolor $colors(-fg)
+        option add *Menu.background #2f2f2f
     
 	} elseif {$mode == "light"} {
 		ttk::style theme use "sun-valley-light"
@@ -84,5 +85,6 @@ proc set_theme {mode} {
         option add *font [ttk::style lookup . -font]
         option add *Treeview.show tree
         option add *Menu.selectcolor $colors(-fg)
+        option add *Menu.background #e7e7e7
 	}
 }
