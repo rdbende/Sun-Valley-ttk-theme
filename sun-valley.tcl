@@ -43,7 +43,6 @@ proc set_theme {mode} {
         ttk::style map . -foreground [list disabled $colors(-disabledfg)]
 
         option add *font [ttk::style lookup . -font]
-        option add *Treeview.show tree
         option add *Menu.selectcolor $colors(-fg)
         option add *Menu.background #2f2f2f
     
@@ -83,7 +82,6 @@ proc set_theme {mode} {
         ttk::style map . -foreground [list disabled $colors(-disabledfg)]
 
         option add *font [ttk::style lookup . -font]
-        option add *Treeview.show tree
         option add *Menu.selectcolor $colors(-fg)
         option add *Menu.background #e7e7e7
 	}
