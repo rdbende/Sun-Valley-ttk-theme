@@ -35,6 +35,14 @@ namespace eval ttk::theme::sun-valley-light {
             }
         }
 
+        ttk::style layout Close.TButton {
+            CloseButton.button -children {
+                CloseButton.padding -children {
+                    CloseButton.label -side left -expand 1
+                } 
+            }
+        }
+
         ttk::style layout Toolbutton {
             Toolbutton.button -children {
                 Toolbutton.padding -children {
@@ -201,6 +209,23 @@ namespace eval ttk::theme::sun-valley-light {
                 selected $images(button-rest) \
                 pressed $images(button-pressed) \
                 active $images(button-hover) \
+            ] -border 4 -sticky nsew
+
+        # Close Button
+        ttk::style configure Close.TButton -padding {8 4} -anchor center -foreground $colors(-fg)
+
+        ttk::style map Close.TButton -foreground \
+            [list disabled #a2a2a2 \
+                pressed #636363 \
+                active #ffffff]
+
+        ttk::style element create CloseButton.button image \
+            [list $images(button-rest) \
+                {selected disabled} $images(button-disabled) \
+                disabled $images(button-disabled) \
+                selected $images(button-rest) \
+                pressed $images(button-pressed) \
+                active $images(button-close-hover) \
             ] -border 4 -sticky nsew
 
         # Toolbutton
