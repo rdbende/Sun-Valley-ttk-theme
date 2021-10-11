@@ -169,15 +169,6 @@ namespace eval ttk::theme::sun-valley-dark {
             }
         }
 
-        ttk::style layout TNotebook.Tab {
-            Notebook.tab -expand 1 -children {
-                Notebook.padding -expand 1 -sticky nsew -children {
-                    Notebook.image -side left -sticky w
-                    Notebook.text -side right -expand 1
-                }
-            }
-        }
-
         ttk::style layout Treeview.Item {
             Treeitem.padding -sticky nsew -children {
                 Treeitem.image -side left -sticky {}
