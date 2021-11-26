@@ -1,8 +1,7 @@
 # Sun-Valley-ttk-theme
 A stunning theme for ttk based on Microsoft's Sun Valley visual style
 
-![Light screenshot](https://github.com/rdbende/Sun-Valley-ttk-theme/blob/master/Light%20screenshot.png)
-![Dark screenshot](https://github.com/rdbende/Sun-Valley-ttk-theme/blob/master/Dark%20screenshot.png)
+![Screenshot](https://github.com/rdbende/Sun-Valley-ttk-theme/blob/master/Screenshot.png)
 ###### Yup, this isn't Windows 11, this is KDE Plasma :)
 
 <br>
