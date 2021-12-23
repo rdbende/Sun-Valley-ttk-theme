@@ -28,7 +28,7 @@ proc set_theme {mode} {
             -insertcolor $colors(-fg) \
             -fieldbackground $colors(-selectbg) \
             -font {"Segoe Ui" 10} \
-            -borderwidth 1 \
+            -borderwidth 0 \
             -relief flat
 
         tk_setPalette \
