@@ -69,6 +69,22 @@ namespace eval ttk::theme::sun-valley-light {
             }
         }
 
+        ttk::style layout Titlebar.TButton {
+            TitlebarButton.button -children {
+                TitlebarButton.padding -children {
+                    TitlebarButton.label -side left -expand 1
+                } 
+            }
+        }
+
+        ttk::style layout Close.Titlebar.TButton {
+            CloseButton.button -children {
+                CloseButton.padding -children {
+                    CloseButton.label -side left -expand 1
+                } 
+            }
+        }
+
         ttk::style layout TCheckbutton {
             Checkbutton.button -children {
                 Checkbutton.padding -children {
@@ -243,6 +259,36 @@ namespace eval ttk::theme::sun-valley-light {
                 selected $images(button-accent-rest) \
                 pressed $images(button-accent-pressed) \
                 active $images(button-accent-hover) \
+            ] -border 4 -sticky nsew
+
+        # Titlebar.TButton
+        ttk::style configure Titlebar.TButton -padding {8 4} -anchor center -foreground #1a1a1a
+
+        ttk::style map Titlebar.TButton -foreground \
+            [list disabled #a0a0a0 \
+                pressed #606060 \
+                active #191919]
+
+        ttk::style element create TitlebarButton.button image \
+            [list $images(empty) \
+                disabled $images(empty) \
+                pressed $images(button-titlebar-pressed) \
+                active $images(button-titlebar-hover) \
+            ] -border 4 -sticky nsew
+
+        # Close.Titlebar.TButton
+        ttk::style configure Close.Titlebar.TButton -padding {8 4} -anchor center -foreground #1a1a1a
+
+        ttk::style map Close.Titlebar.TButton -foreground \
+            [list disabled #a0a0a0 \
+                pressed #efc6c2 \
+                active #ffffff]
+
+        ttk::style element create CloseButton.button image \
+            [list $images(empty) \
+                disabled $images(empty) \
+                pressed $images(button-close-pressed) \
+                active $images(button-close-hover) \
             ] -border 4 -sticky nsew
 
         # Checkbutton
