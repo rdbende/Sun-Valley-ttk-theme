@@ -27,7 +27,7 @@ proc set_theme {mode} {
             -insertwidth 1 \
             -insertcolor $colors(-fg) \
             -fieldbackground $colors(-selectbg) \
-            -font {"Segoe Ui" 10} \
+            -font {"Segoe UI" 10} \
             -borderwidth 0 \
             -relief flat
 
@@ -67,7 +67,7 @@ proc set_theme {mode} {
             -insertwidth 1 \
             -insertcolor $colors(-fg) \
             -fieldbackground $colors(-selectbg) \
-            -font {"Segoe Ui" 10} \
+            -font {"Segoe UI" 10} \
             -borderwidth 0 \
             -relief flat
 
