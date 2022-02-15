@@ -98,7 +98,6 @@ pack .big_frame.button
 
 ## Bugs
 - Tk isn't really good at displaying `png` images, so if your program is laggy with the theme, please check out the [gif-based branch!](https://github.com/rdbende/Sun-Valley-ttk-theme/tree/gif-based/)
-- When you change the theme, and your app has a `treeview`, the window resizes. This is a quite strange bug that applies to all ttk themes. 
 
 ## Examples
 I made a separate repo for the examples: [Sun-Valley-ttk-examples](https://github.com/rdbende/Sun-Valley-ttk-examples). 
