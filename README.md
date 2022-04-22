@@ -2,31 +2,37 @@
 A stunning theme for ttk based on Microsoft's Sun Valley visual style
 
 ![Screenshot](https://github.com/rdbende/Sun-Valley-ttk-theme/blob/master/Screenshot.png)
-###### Yup, this isn't Windows 11, this is KDE Plasma :)
 
-<br>
+## Installation
+The theme is easily installable as a Python package
+```
+pip install sv-ttk
+```
+### Usage
+```python
+import tkinter as tk
+import sv_ttk
 
-## Documentation
-For the documentation see the [documentation](DOCUMENTATION.pdf)!
+root = tk.Tk()
 
-## How to use?
+sv_ttk.set_theme("light")  # Set light theme
+sv_ttk.set_theme("dark")  # Set dark theme
+
+sv_ttk.use_light_theme()  # Set light theme
+sv_ttk.use_dark_theme()  # Set dark theme
+
+sv_ttk.toggle_theme()  # Toggle between dark and light theme
+
+print(sv_ttk.get_theme())  # Get what theme the app uses (either 'light' or 'dark')
+
+root.mainloop()
+```
+
+## Usage with Tcl/Tk
 I wanted to make usage of the theme very simple, so the theme setting is handled by a separate tcl script.
 This way whether you want to use a dark or light theme, you need to import just a single file. The other thing
 that makes this a good solution is that normally switching between light and dark theme is not entirely perfect,
 and the colors are incorrect.
-
-### In Tkinter:
-```python
-# Just simply import the sun-valley.tcl file
-widget.tk.call("source", "sun-valley.tcl")
-
-# Then set the theme you want with the set_theme procedure
-widget.tk.call("set_theme", "light")
-# or
-widget.tk.call("set_theme", "dark")
-```
-
-### In Tcl/Tk:
 ```tcl
 # Just simply import the sun-valley.tcl file
 source sun-valley.tcl
@@ -40,38 +46,7 @@ set_theme dark
 ### Switching themes
 Normally changing between themes isn't that easy, because then the colors aren't correct. See this [Stackoverflow question](https://stackoverflow.com/questions/66576662/how-to-switch-between-dark-and-light-ttk-theme). However, with my current solution, you can change theme at any time, without any color issues.
 
-```python
-import tkinter as tk
-from tkinter import ttk
-
-root = tk.Tk()
-
-# Pack a big frame so, it behaves like the window background
-big_frame = ttk.Frame(root)
-big_frame.pack(fill="both", expand=True)
-
-# Set the initial theme
-root.tk.call("source", "sun-valley.tcl")
-root.tk.call("set_theme", "light")
-
-def change_theme():
-    # NOTE: The theme's real name is sun-valley-<mode>
-    if root.tk.call("ttk::style", "theme", "use") == "sun-valley-dark":
-        # Set light theme
-        root.tk.call("set_theme", "light")
-    else:
-        # Set dark theme
-        root.tk.call("set_theme", "dark")
-
-# Remember, you have to use ttk widgets
-button = ttk.Button(big_frame, text="Change theme!", command=change_theme)
-button.pack()
-
-root.mainloop()
-```
-
 ```tcl
-# You don't need 8.6 if you use the gif version
 package require Tk 8.6
 source "sun-valley.tcl"
 
