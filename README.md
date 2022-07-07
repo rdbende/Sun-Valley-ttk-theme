@@ -1,77 +1,58 @@
-# Sun-Valley-ttk-theme
-A stunning theme for ttk based on Microsoft's Sun Valley visual style
+<h1 align="center">Sun Valley ttk theme</h1>
+
+</br>
+
+<p align="center">A stunning theme for ttk based on Microsoft's Sun Valley visual styles</p>
 
 ![Screenshot](https://github.com/rdbende/Sun-Valley-ttk-theme/blob/master/Screenshot.png)
-###### Yup, this isn't Windows 11, this is KDE Plasma :)
 
-<br>
+## Installation
+The theme is easily installable as a Python package
 
-## Documentation
-For the documentation see the [documentation](DOCUMENTATION.pdf)!
-
-## How to use?
-I wanted to make usage of the theme very simple, so the theme setting is handled by a separate tcl script.
-This way whether you want to use a dark or light theme, you need to import just a single file. The other thing
-that makes this a good solution is that normally switching between light and dark theme is not entirely perfect,
-and the colors are incorrect.
-
-### In Tkinter:
-```python
-# Just simply import the sun-valley.tcl file
-widget.tk.call("source", "sun-valley.tcl")
-
-# Then set the theme you want with the set_theme procedure
-widget.tk.call("set_theme", "light")
-# or
-widget.tk.call("set_theme", "dark")
+```
+pip install sv-ttk
 ```
 
-### In Tcl/Tk:
-```tcl
-# Just simply import the sun-valley.tcl file
-source sun-valley.tcl
 
-# Then set the theme you want with the set_theme procedure
-set_theme light
-# or
-set_theme dark
-```
-
-### Switching themes
-Normally changing between themes isn't that easy, because then the colors aren't correct. See this [Stackoverflow question](https://stackoverflow.com/questions/66576662/how-to-switch-between-dark-and-light-ttk-theme). However, with my current solution, you can change theme at any time, without any color issues.
+### Usage
 
 ```python
 import tkinter as tk
-from tkinter import ttk
+import sv_ttk
 
 root = tk.Tk()
 
-# Pack a big frame so, it behaves like the window background
-big_frame = ttk.Frame(root)
-big_frame.pack(fill="both", expand=True)
+sv_ttk.set_theme("light")  # Set light theme
+sv_ttk.set_theme("dark")  # Set dark theme
 
-# Set the initial theme
-root.tk.call("source", "sun-valley.tcl")
-root.tk.call("set_theme", "light")
+sv_ttk.use_light_theme()  # Set light theme
+sv_ttk.use_dark_theme()  # Set dark theme
 
-def change_theme():
-    # NOTE: The theme's real name is sun-valley-<mode>
-    if root.tk.call("ttk::style", "theme", "use") == "sun-valley-dark":
-        # Set light theme
-        root.tk.call("set_theme", "light")
-    else:
-        # Set dark theme
-        root.tk.call("set_theme", "dark")
+sv_ttk.toggle_theme()  # Toggle between dark and light theme
 
-# Remember, you have to use ttk widgets
-button = ttk.Button(big_frame, text="Change theme!", command=change_theme)
-button.pack()
+print(sv_ttk.get_theme())  # Get what theme the app uses (either 'light' or 'dark')
 
 root.mainloop()
 ```
 
+## Usage with Tcl/Tk
+To make setting the theme and the right colours as easy as possible, there is a separate script that handles all this.
+This way whether you want to use a dark or light theme, you need to import just a single file, and the colors will be
+configured even for non-ttk widgets for a consistent look.
+
 ```tcl
-# You don't need 8.6 if you use the gif version
+source sun-valley.tcl
+
+set_theme light  ;# Set light theme
+# or
+set_theme dark  ;# Set dark theme
+```
+
+### Switching themes
+Normally changing between themes isn't that easy, because then the colors doesn't get configured correctly. See this [SO question](https://stackoverflow.com/questions/66576662/how-to-switch-between-dark-and-light-ttk-theme).
+However, with my current solution, you can change theme at any time, without any color issues.
+
+```tcl
 package require Tk 8.6
 source "sun-valley.tcl"
 
@@ -97,14 +78,14 @@ pack .big_frame.button
 ```
 
 ## Bugs
-- Tk isn't really good at displaying `png` images, so if your program is laggy with the theme, please check out the [gif-based branch!](https://github.com/rdbende/Sun-Valley-ttk-theme/tree/gif-based/)
-- When you change the theme, and your app has a `treeview`, the window resizes. This is a quite strange bug that applies to all ttk themes. 
+- Tk isn't really good at displaying `png` images, so if your program is laggy with the theme, please check out the [gif-based branch!](https://github.com/rdbende/Sun-Valley-ttk-theme/tree/gif-based/) (hasn't been updated for a while)
+- When you change the theme, and your app has a `treeview`, the window resizes. This is a quite strange bug that applies to other ttk themes too. 
 
 ## Examples
 I made a separate repo for the examples: [Sun-Valley-ttk-examples](https://github.com/rdbende/Sun-Valley-ttk-examples). 
-Be sure to **star** and **watch** it because I will make more examples, with awesome tips and tricks!!
+Be sure to **star** and **watch** it because I might make some more examples, with awesome tips and tricks!
 
 ## What's next?
-Check out my other themes!
+Check out my other ttk themes!
 - [Azure ttk theme](https://github.com/rdbende/Azure-ttk-theme)
 - [Forest ttk theme](https://github.com/rdbende/Forest-ttk-theme)
