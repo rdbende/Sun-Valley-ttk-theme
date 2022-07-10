@@ -6,7 +6,7 @@
 
 ![Screenshot](https://raw.githubusercontent.com/rdbende/Sun-Valley-ttk-theme/master/Screenshot.png)
 
-## Installation [![image](https://static.pepy.tech/badge/tkinterpp)](https://pypi.org/project/sv-ttk)
+## Installation [![image](https://static.pepy.tech/badge/sv-ttk)](https://pypi.org/project/sv-ttk)
 The theme is easily installable as a Python package
 
 ```
