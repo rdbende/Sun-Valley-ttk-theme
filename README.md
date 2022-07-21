@@ -1,10 +1,7 @@
-<h1 align="center">Sun Valley ttk theme</h1>
-
-</br>
-
-<p align="center">A stunning theme for ttk based on Microsoft's Sun Valley visual styles</p>
-
-![Screenshot](https://raw.githubusercontent.com/rdbende/Sun-Valley-ttk-theme/master/Screenshot.png)
+<picture>
+  <source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/rdbende/Sun-Valley-ttk-theme/master/assets/dark.png">
+  <img alt="Cover image" src="https://raw.githubusercontent.com/rdbende/Sun-Valley-ttk-theme/master/assets/light.png">
+</picture>
 
 ## Installation
 The theme is easily installable as a Python package
