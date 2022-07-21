@@ -3,7 +3,7 @@
   <img alt="Cover image" src="https://raw.githubusercontent.com/rdbende/Sun-Valley-ttk-theme/master/assets/light.png">
 </picture>
 
-## Installation
+## Installation [![image](https://static.pepy.tech/badge/sv-ttk)](https://pypi.org/project/sv-ttk)
 The theme is easily installable as a Python package
 
 ```
