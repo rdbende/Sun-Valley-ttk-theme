@@ -20,7 +20,7 @@ from tkinter import ttk
 
 import sv_ttk
 
-root = tk.Tk()
+root = tkinter.Tk()
 
 button = ttk.Button(root, text="Click me!")
 button.pack()
