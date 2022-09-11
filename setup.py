@@ -6,7 +6,7 @@ with open("README.md", "r") as file:
 
 setup(
     name="sv_ttk",
-    version="1.9.0",
+    version="2.0",
     license="MIT",
     author="rdbende",
     author_email="rdbende@gmail.com",
@@ -19,9 +19,7 @@ setup(
     long_description=long_description,
     long_description_content_type="text/markdown",
     packages=["sv_ttk"],
-    package_data={
-        "sv_ttk": ["sv.tcl", "theme/*"]
-    },
+    package_data={"sv_ttk": ["sv.tcl", "theme/*"]},
     python_requires=">=3.4",
     classifiers=[
         "Intended Audience :: Developers",
