@@ -1,0 +1,8 @@
+{
+    "type": "module",
+    "dependencies": {
+        "maxrects-packer": "^2.7.3",
+        "sharp": "^0.30.5",
+        "globby": "13.0.0"
+    }
+}

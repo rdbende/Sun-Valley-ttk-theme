@@ -1,0 +1,32 @@
+name: Upload to Pypi
+
+on:
+  release:
+    types: [published]
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v3
+    - name: Set up Python
+      uses: actions/setup-python@v3
+      with:
+        python-version: "3.9"
+    - name: Install dependencies
+      run: |
+        python -m pip install --upgrade pip
+        pip install setuptools wheel twine
+    - name: Prepare package
+      run: |
+        mkdir sv_ttk
+        cp -r sv_ttk.py sv.tcl theme sv_ttk
+        mv sv_ttk/sv_ttk.py sv_ttk/__init__.py
+    - name: Build and publish to Pypi
+      env:
+        TWINE_USERNAME: ${{ secrets.PYPI_USERNAME }}
+        TWINE_PASSWORD: ${{ secrets.PYPI_PASSWORD }}
+      run: |
+        python setup.py sdist bdist_wheel
+        twine upload dist/*
