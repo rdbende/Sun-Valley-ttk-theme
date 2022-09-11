@@ -1,0 +1,27 @@
+
+name: Generate sprite sheet
+
+on:
+  push:
+    paths:
+      - 'src/dark/**.png'
+      - 'src/light/**.png'
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v3
+    - name: Install packages
+      run: |
+        cd src
+        npm install
+    - name: Generate sprite sheet image and sprite map
+      run: |
+        cd src
+        node spritesheet_generator.js
+    - uses: stefanzweifel/git-auto-commit-action@v4
+      with:
+        commit_message: "Automation: Update sprite sheets"
+        file_pattern: theme/*.*

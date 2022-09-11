@@ -1,0 +1,15 @@
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Dependency directories
+node_modules/
+
+# Build directories
+sv_ttk/
+build/
+dist/
+sdist/
+wheels/
+*.egg-info/
