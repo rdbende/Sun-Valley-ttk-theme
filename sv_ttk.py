@@ -27,6 +27,7 @@ def init_theme(func):
                 root = _default_root
 
         return func(*args, **kwargs)
+
     return wrapper
 
 
