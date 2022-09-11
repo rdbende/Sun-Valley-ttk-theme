@@ -1,3 +1,5 @@
+// Huge thanks to @TransparentLC on Github for this script
+
 import fs from "fs";
 import path from "path";
 import sharp from "sharp";
