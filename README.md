@@ -12,7 +12,7 @@ pip install sv-ttk
 
 
 ### Usage
-For detailed documentation, see the [wiki page](https://github.com/rdbende/Sun-Valley-ttk-theme/wiki/sv_ttk)
+For detailed documentation, see the [wiki page](https://github.com/rdbende/Sun-Valley-ttk-theme/wiki/Usage-with-Python)
 
 ```python
 import tkinter
