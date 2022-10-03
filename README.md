@@ -25,7 +25,7 @@ root = tkinter.Tk()
 button = ttk.Button(root, text="Click me!")
 button.pack()
 
-# This where the magic happens
+# This is where the magic happens
 sv_ttk.set_theme("dark")
 
 root.mainloop()
