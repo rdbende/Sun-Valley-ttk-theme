@@ -12,7 +12,7 @@ pip install sv-ttk
 
 
 ### Usage
-For detailed documentation, see the [wiki page](https://github.com/rdbende/Sun-Valley-ttk-theme/wiki/sv_ttk-docs)
+For detailed documentation, see the [wiki page](https://github.com/rdbende/Sun-Valley-ttk-theme/wiki/Usage-with-Python)
 
 ```python
 import tkinter
@@ -20,12 +20,12 @@ from tkinter import ttk
 
 import sv_ttk
 
-root = tk.Tk()
+root = tkinter.Tk()
 
 button = ttk.Button(root, text="Click me!")
 button.pack()
 
-# This where the magic happens
+# This is where the magic happens
 sv_ttk.set_theme("dark")
 
 root.mainloop()
