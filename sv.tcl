@@ -16,7 +16,7 @@ proc set_theme {mode} {
       -insertwidth 1 \
       -insertcolor $ttk::theme::sv_dark::theme_colors(-fg) \
       -fieldbackground $ttk::theme::sv_dark::theme_colors(-bg) \
-      -font {"Segoe UI" 10} \
+      -font {"Segoe UI Variable Text" 10} \
       -borderwidth 0 \
       -relief flat
 
@@ -31,7 +31,6 @@ proc set_theme {mode} {
     
     ttk::style map . -foreground [list disabled $ttk::theme::sv_dark::theme_colors(-disfg)]
 
-    option add *font {"Segoe UI" 10}
     option add *tearOff 0
     option add *Menu.selectColor $ttk::theme::sv_dark::theme_colors(-fg)
   
@@ -48,7 +47,7 @@ proc set_theme {mode} {
       -insertwidth 1 \
       -insertcolor $ttk::theme::sv_light::theme_colors(-fg) \
       -fieldbackground $ttk::theme::sv_light::theme_colors(-bg) \
-      -font {"Segoe UI" 10} \
+      -font {"Segoe UI Variable Text" 10} \
       -borderwidth 0 \
       -relief flat
 
@@ -63,8 +62,10 @@ proc set_theme {mode} {
     
     ttk::style map . -foreground [list disabled $ttk::theme::sv_light::theme_colors(-disfg)]
 
-    option add *font {"Segoe UI" 10}
     option add *tearOff 0
     option add *Menu.selectColor $ttk::theme::sv_light::theme_colors(-fg)
   }
+
+  # Title label. See #61
+  ttk::style configure Title.TLabel -font "{Segoe UI Variable Display} 28 bold"
 }
