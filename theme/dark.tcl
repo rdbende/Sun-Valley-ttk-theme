@@ -258,7 +258,7 @@ namespace eval ttk::theme::sv_dark {
       ] -width 26 -sticky w
 
     # Entry
-    ttk::style configure TEntry -foreground $theme_colors(-fg) -font {"Segoe UI Variable Text" 10}
+    ttk::style configure TEntry -foreground $theme_colors(-fg) -font SunValleyBodyFont
     ttk::style map TEntry -foreground [list disabled "#757575" pressed "#cfcfcf"]
 
     ttk::style element create Entry.field image \
@@ -280,7 +280,7 @@ namespace eval ttk::theme::sv_dark {
       }
     }
         
-    ttk::style configure TCombobox -foreground $theme_colors(-fg) -font {"Segoe UI Variable Text" 10}
+    ttk::style configure TCombobox -foreground $theme_colors(-fg) -font SunValleyBodyFont
     ttk::style configure ComboboxPopdownFrame -borderwidth 1 -relief solid
     ttk::style map TCombobox -foreground [list disabled "#757575" pressed "#cfcfcf"]
     
@@ -320,7 +320,7 @@ namespace eval ttk::theme::sv_dark {
       }
     }
 
-    ttk::style configure TSpinbox -foreground $theme_colors(-fg) -font {"Segoe UI Variable Text" 10}
+    ttk::style configure TSpinbox -foreground $theme_colors(-fg) -font SunValleyBodyFont
     ttk::style map TSpinbox -foreground [list disabled "#757575" pressed "#cfcfcf"]
 
     ttk::style element create Spinbox.field image \
@@ -413,7 +413,7 @@ namespace eval ttk::theme::sv_dark {
     }
 
     ttk::style element create Labelframe.border image $I(card) -border 5 -padding 4 -sticky nsew
-    ttk::style configure TLabelframe.Label -font "{Segoe UI Variable Display} 10"
+    ttk::style configure TLabelframe.Label -font SunValleyBodyFont
 
     # Notebook
     ttk::style layout TNotebook {

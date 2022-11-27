@@ -16,7 +16,7 @@ proc set_theme {mode} {
       -insertwidth 1 \
       -insertcolor $ttk::theme::sv_dark::theme_colors(-fg) \
       -fieldbackground $ttk::theme::sv_dark::theme_colors(-bg) \
-      -font {"Segoe UI Variable Text" 10} \
+      -font SunValleyBodyFont \
       -borderwidth 0 \
       -relief flat
 
@@ -47,7 +47,7 @@ proc set_theme {mode} {
       -insertwidth 1 \
       -insertcolor $ttk::theme::sv_light::theme_colors(-fg) \
       -fieldbackground $ttk::theme::sv_light::theme_colors(-bg) \
-      -font {"Segoe UI Variable Text" 10} \
+      -font SunValleyBodyFont \
       -borderwidth 0 \
       -relief flat
 
@@ -65,7 +65,14 @@ proc set_theme {mode} {
     option add *tearOff 0
     option add *Menu.selectColor $ttk::theme::sv_light::theme_colors(-fg)
   }
-
-  # Title label. See #61
-  ttk::style configure Title.TLabel -font "{Segoe UI Variable Display} 28 bold"
 }
+
+
+font create SunValleyCaptionFont -family "Segoe UI Variable Static Small" -size -12
+font create SunValleyBodyFont -family "Segoe UI Variable Static Text" -size -14
+font create SunValleyBodyStrongFont -family "Segoe UI Variable Static Text Semibold" -size -14
+font create SunValleyBodyLargeFont -family "Segoe UI Variable Static Text" -size -18
+font create SunValleySubtitleFont -family "Segoe UI Variable Static Display Semibold" -size -20
+font create SunValleyTitleFont -family "Segoe UI Variable Static Display Semibold" -size -28
+font create SunValleyTitleLargeFont -family "Segoe UI Variable Static Display Semibold" -size -40
+font create SunValleyDisplayFont -family "Segoe UI Variable Static Display Semibold" -size -68

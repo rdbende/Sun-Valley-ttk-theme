@@ -6,16 +6,17 @@ with open("README.md", "r") as file:
 
 setup(
     name="sv_ttk",
-    version="2.1",
+    version="2.2",
     license="MIT",
     author="rdbende",
     author_email="rdbende@gmail.com",
     url="https://github.com/rdbende/Sun-Valley-ttk-theme",
     project_urls={
         "Source": "https://github.com/rdbende/Sun-Valley-ttk-theme",
+        "Documentation": "https://github.com/rdbende/Sun-Valley-ttk-theme/wiki",
         "Tracker": "https://github.com/rdbende/Sun-Valley-ttk-theme/issues",
     },
-    description="A gorgeous theme for Tkinter that looks like Windows 11",
+    description="A gorgeous theme for Tkinter, based on Windows 11's UI",
     long_description=long_description,
     long_description_content_type="text/markdown",
     packages=["sv_ttk"],
@@ -38,6 +39,7 @@ setup(
     ],
     keywords=[
         "dark-theme",
+        "modern",
         "sun-valley",
         "tcl",
         "tcl/tk",
