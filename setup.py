@@ -6,7 +6,7 @@ with open("README.md", "r") as file:
 
 setup(
     name="sv_ttk",
-    version="2.2",
+    version="2.3",
     license="MIT",
     author="rdbende",
     author_email="rdbende@gmail.com",

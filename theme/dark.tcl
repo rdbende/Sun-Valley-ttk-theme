@@ -1,11 +1,10 @@
-package require Tk 8.6
 source [file join [file dirname [info script]] sprites_dark.tcl]
 
 namespace eval ttk::theme::sv_dark {
-  package provide ttk::theme::sv_dark 2.0
+  package provide ttk::theme::sv_dark 2.3
 
   array set theme_colors {
-    -fg      "#ffffff"
+    -fg      "#fafafa"
     -bg      "#1c1c1c"
     -disfg   "#595959"
     -selfg   "#ffffff"
@@ -35,7 +34,7 @@ namespace eval ttk::theme::sv_dark {
       }
     }
 
-    ttk::style configure TButton -padding {8 4} -anchor center -foreground $theme_colors(-fg)
+    ttk::style configure TButton -padding {8 2 8 3} -anchor center -foreground $theme_colors(-fg)
     ttk::style map TButton -foreground [list disabled "#7a7a7a" pressed "#d0d0d0"]
     
     ttk::style element create Button.button image \
@@ -58,7 +57,7 @@ namespace eval ttk::theme::sv_dark {
       }
     }
 
-    ttk::style configure Toolbutton -padding {8 4} -anchor center
+    ttk::style configure Toolbutton -padding {8 2 8 3} -anchor center
     
     ttk::style element create Toolbutton.button image \
       [list $I(empty) \
@@ -78,7 +77,7 @@ namespace eval ttk::theme::sv_dark {
       }
     }
 
-    ttk::style configure Accent.TButton -padding {8 4} -anchor center -foreground "#000000"
+    ttk::style configure Accent.TButton -padding {8 2 8 3} -anchor center -foreground "#000000"
     ttk::style map Accent.TButton -foreground [list pressed "#25536a" disabled "#a5a5a5"]
 
     ttk::style element create AccentButton.button image \
@@ -102,7 +101,7 @@ namespace eval ttk::theme::sv_dark {
       }
     }
 
-    ttk::style configure TMenubutton -padding {8 4 10 4}
+    ttk::style configure TMenubutton -padding {8 2 13 3}
 
     ttk::style element create Menubutton.button image \
       [list $I(button-rest) \
@@ -125,7 +124,7 @@ namespace eval ttk::theme::sv_dark {
       }
     }
     
-    ttk::style configure TOptionMenu -padding {8 4 10 4}
+    ttk::style configure TOptionMenu -padding {8 2 13 3}
 
     ttk::style element create OptionMenu.button image \
       [list $I(button-rest) \
@@ -205,7 +204,7 @@ namespace eval ttk::theme::sv_dark {
       }
     }
 
-    ttk::style configure Toggle.TButton -padding {8 4 8 4} -anchor center -foreground $theme_colors(-fg)
+    ttk::style configure Toggle.TButton -padding {8 2 8 3} -anchor center -foreground $theme_colors(-fg)
 
     ttk::style map Toggle.TButton -foreground \
       [list {selected disabled} "#a5a5a5" \
@@ -258,7 +257,7 @@ namespace eval ttk::theme::sv_dark {
       ] -width 26 -sticky w
 
     # Entry
-    ttk::style configure TEntry -foreground $theme_colors(-fg) -font SunValleyBodyFont
+    ttk::style configure TEntry -foreground $theme_colors(-fg) -padding {6 1 4 2}
     ttk::style map TEntry -foreground [list disabled "#757575" pressed "#cfcfcf"]
 
     ttk::style element create Entry.field image \
@@ -268,7 +267,7 @@ namespace eval ttk::theme::sv_dark {
         disabled $I(textbox-dis) \
         {focus !invalid} $I(textbox-focus) \
         hover $I(textbox-hover) \
-      ] -border 5 -padding 8 -sticky nsew
+      ] -border 5 -sticky nsew
 
     # Combobox
     ttk::style layout TCombobox {
@@ -280,7 +279,7 @@ namespace eval ttk::theme::sv_dark {
       }
     }
         
-    ttk::style configure TCombobox -foreground $theme_colors(-fg) -font SunValleyBodyFont
+    ttk::style configure TCombobox -foreground $theme_colors(-fg) -padding {6 1 0 2}
     ttk::style configure ComboboxPopdownFrame -borderwidth 1 -relief solid
     ttk::style map TCombobox -foreground [list disabled "#757575" pressed "#cfcfcf"]
     
@@ -305,7 +304,7 @@ namespace eval ttk::theme::sv_dark {
         focus $I(textbox-focus) \
         {focus !invalid} $I(textbox-focus) \
         hover $I(textbox-hover) \
-      ] -border 5 -padding {8 8 2 8}
+      ] -border 5
         
     ttk::style element create Combobox.arrow image $I(down) -width 34 -sticky {}
 
@@ -320,7 +319,7 @@ namespace eval ttk::theme::sv_dark {
       }
     }
 
-    ttk::style configure TSpinbox -foreground $theme_colors(-fg) -font SunValleyBodyFont
+    ttk::style configure TSpinbox -foreground $theme_colors(-fg) -padding {6 1 0 2}
     ttk::style map TSpinbox -foreground [list disabled "#757575" pressed "#cfcfcf"]
 
     ttk::style element create Spinbox.field image \
@@ -331,7 +330,7 @@ namespace eval ttk::theme::sv_dark {
         focus $I(textbox-focus) \
         {focus !invalid} $I(textbox-focus) \
         hover $I(textbox-hover) \
-      ] -border 5 -padding {8 8 2 8} -sticky nsew
+      ] -border 5 -sticky nsew
 
     ttk::style element create Spinbox.uparrow image $I(up) -width 34 -height 16 -sticky {}
     ttk::style element create Spinbox.downarrow image $I(down) -width 34 -height 16 -sticky {}
@@ -413,7 +412,7 @@ namespace eval ttk::theme::sv_dark {
     }
 
     ttk::style element create Labelframe.border image $I(card) -border 5 -padding 4 -sticky nsew
-    ttk::style configure TLabelframe.Label -font SunValleyBodyFont
+    ttk::style configure TLabelframe.Label -font SunValleyBodyStrongFont -foreground "#9e9e9e"
 
     # Notebook
     ttk::style layout TNotebook {
@@ -433,7 +432,7 @@ namespace eval ttk::theme::sv_dark {
       ] -border 13 -padding {16 14 16 6} -height 32
 
     # Treeview
-    ttk::style configure Treeview -background $theme_colors(-bg) -rowheight [expr {[font metrics font -linespace] + 2}]
+    ttk::style configure Treeview -background $theme_colors(-bg) -rowheight [expr {[font metrics SunValleyBodyFont -linespace] + 4}] -font SunValleyCaptionFont
     ttk::style map Treeview \
       -background [list selected "#292929"] \
       -foreground [list selected $theme_colors(-selfg)]
