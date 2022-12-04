@@ -22,7 +22,7 @@ proc config_input_font {w} {
 }
 
 proc config_menus {w} {
-  if {[tk windowingsystem] == "x11"} {
+  if {[tk windowingsystem] != "aqua"} {
     set theme [ttk::style theme use]
     if {$theme == "sun-valley-dark"} {
       $w configure \
