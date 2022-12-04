@@ -1,12 +1,19 @@
+import re
+from pathlib import Path
+
 from setuptools import setup
 
-with open("README.md", "r") as file:
-    long_description = file.read()
+with (Path(__file__).parent / "README.md").open() as file:
+    long_description = re.sub(
+        r"(?s)<picture>.*</picture>",
+        '<img alt="Cover image" src="https://raw.githubusercontent.com/rdbende/Sun-Valley-ttk-theme/master/assets/hero_light.png">',
+        file.read(),
+    )
 
 
 setup(
     name="sv_ttk",
-    version="2.3",
+    version="2.4",
     license="MIT",
     author="rdbende",
     author_email="rdbende@gmail.com",
