@@ -433,7 +433,10 @@ namespace eval ttk::theme::sv_light {
       ] -border 13 -padding {16 14 16 6} -height 32
 
     # Treeview
-    ttk::style configure Treeview -background $theme_colors(-bg) -rowheight [expr {[font metrics SunValleyBodyFont -linespace] + 4}] -font SunValleyCaptionFont
+    ttk::style configure Treeview \
+        -background $theme_colors(-bg) \
+        -rowheight [expr {[font metrics SunValleyBodyFont -linespace] + 4}] \
+        -font SunValleyBodyFont
     ttk::style map Treeview \
       -background [list selected "#e7e7e7"] \
       -foreground [list selected "#191919"]

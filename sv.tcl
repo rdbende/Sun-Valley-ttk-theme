@@ -21,10 +21,43 @@ proc config_input_font {w} {
   }
 }
 
+proc config_menus {w} {
+  if {[tk windowingsystem] == "x11"} {
+    set theme [ttk::style theme use]
+    if {$theme == "sun-valley-dark"} {
+      $w configure \
+          -relief solid \
+          -borderwidth 1 \
+          -activeborderwidth 0 \
+          -background "#202020" \
+          -activebackground "#434343" \
+          -activeforeground "#fafafa" \
+          -selectcolor "#fafafa"
+    } elseif {$theme == "sun-valley-light"} {
+      $w configure \
+          -relief solid \
+          -borderwidth 1 \
+          -activeborderwidth 0 \
+          -background "#ebebeb" \
+          -activebackground "#c4c4c4" \
+          -activeforeground "#1c1c1c" \
+          -selectcolor "#1c1c1c"
+    }
+
+    if {[[winfo toplevel $w] cget -menu] != $w} {
+      if {$theme == "sun-valley-dark"} {
+        $w configure -borderwidth 0 -background $ttk::theme::sv_dark::theme_colors(-bg)
+      } elseif {$theme == "sun-valley-light"} {
+        $w configure -borderwidth 0 -background $ttk::theme::sv_light::theme_colors(-bg)
+      }
+    }
+  }
+}
+
 bind TEntry <<ThemeChanged>> {config_input_font %W}
 bind TCombobox <<ThemeChanged>> {config_input_font %W}
 bind TSpinbox <<ThemeChanged>> {config_input_font %W}
-
+bind Menu <<ThemeChanged>> {config_menus %W}
 
 source [file join [file dirname [info script]] theme light.tcl]
 source [file join [file dirname [info script]] theme dark.tcl]
@@ -60,7 +93,6 @@ proc set_theme {mode} {
     ttk::style map . -foreground [list disabled $ttk::theme::sv_dark::theme_colors(-disfg)]
 
     option add *tearOff 0
-    option add *Menu.selectColor $ttk::theme::sv_dark::theme_colors(-fg)
   
   } elseif {$mode == "light"} {
     ttk::style theme use "sun-valley-light"
@@ -91,6 +123,5 @@ proc set_theme {mode} {
     ttk::style map . -foreground [list disabled $ttk::theme::sv_light::theme_colors(-disfg)]
 
     option add *tearOff 0
-    option add *Menu.selectColor $ttk::theme::sv_light::theme_colors(-fg)
   }
 }

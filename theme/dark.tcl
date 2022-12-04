@@ -9,7 +9,7 @@ namespace eval ttk::theme::sv_dark {
     -disfg   "#595959"
     -selfg   "#ffffff"
     -selbg   "#2f60d8"
-    -accent  "#61cbfc"
+    -accent  "#57c8ff"
   }
 
   proc load_images {imgfile} {
@@ -432,7 +432,10 @@ namespace eval ttk::theme::sv_dark {
       ] -border 13 -padding {16 14 16 6} -height 32
 
     # Treeview
-    ttk::style configure Treeview -background $theme_colors(-bg) -rowheight [expr {[font metrics SunValleyBodyFont -linespace] + 4}] -font SunValleyCaptionFont
+    ttk::style configure Treeview \
+        -background $theme_colors(-bg) \
+        -rowheight [expr {[font metrics SunValleyBodyFont -linespace] + 4}] \
+        -font SunValleyBodyFont
     ttk::style map Treeview \
       -background [list selected "#292929"] \
       -foreground [list selected $theme_colors(-selfg)]
