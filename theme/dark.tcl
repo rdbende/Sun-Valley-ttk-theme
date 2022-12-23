@@ -34,7 +34,7 @@ namespace eval ttk::theme::sv_dark {
       }
     }
 
-    ttk::style configure TButton -padding {8 2 8 3} -anchor center -foreground $theme_colors(-fg)
+    ttk::style configure TButton -padding {8 2 8 3} -anchor center -foreground $theme_colors(-fg) -width 12
     ttk::style map TButton -foreground [list disabled "#7a7a7a" pressed "#d0d0d0"]
     
     ttk::style element create Button.button image \
@@ -57,7 +57,7 @@ namespace eval ttk::theme::sv_dark {
       }
     }
 
-    ttk::style configure Toolbutton -padding {8 2 8 3} -anchor center
+    ttk::style configure Toolbutton -padding {8 2 8 3} -anchor center -width 12
     
     ttk::style element create Toolbutton.button image \
       [list $I(empty) \
@@ -101,7 +101,7 @@ namespace eval ttk::theme::sv_dark {
       }
     }
 
-    ttk::style configure TMenubutton -padding {8 2 13 3}
+    ttk::style configure TMenubutton -padding {8 2 13 3} -width 10
 
     ttk::style element create Menubutton.button image \
       [list $I(button-rest) \
@@ -124,7 +124,7 @@ namespace eval ttk::theme::sv_dark {
       }
     }
     
-    ttk::style configure TOptionMenu -padding {8 2 13 3}
+    ttk::style configure TOptionMenu -padding {8 2 13 3} -width 10
 
     ttk::style element create OptionMenu.button image \
       [list $I(button-rest) \
@@ -147,7 +147,7 @@ namespace eval ttk::theme::sv_dark {
       }
     }
 
-    ttk::style configure TCheckbutton -padding 4
+    ttk::style configure TCheckbutton -padding 4 -width 10
 
     ttk::style element create Checkbutton.indicator image \
       [list $I(check-unsel-rest) \
@@ -239,7 +239,7 @@ namespace eval ttk::theme::sv_dark {
       }
     }
 
-    ttk::style configure TRadiobutton -padding 4
+    ttk::style configure TRadiobutton -padding 4 -width 10
 
     ttk::style element create Radiobutton.indicator image \
       [list $I(radio-unsel-rest) \
