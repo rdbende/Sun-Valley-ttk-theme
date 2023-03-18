@@ -36,11 +36,13 @@ def set_theme(theme):
     if theme not in {"dark", "light"}:
         raise RuntimeError("not a valid theme name: {}".format(theme))
 
+    assert root is not None
     root.tk.call("set_theme", theme)
 
 
 @init_theme
 def get_theme():
+    assert root is not None
     theme = root.tk.call("ttk::style", "theme", "use")
 
     return {"sun-valley-dark": "dark", "sun-valley-light": "light"}.get(theme, theme)
