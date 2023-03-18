@@ -259,7 +259,7 @@ namespace eval ttk::theme::sv_light {
 
     # Entry
     ttk::style configure TEntry -foreground $theme_colors(-fg) -padding {6 1 4 2}
-    ttk::style map TEntry -foreground [list disabled "#0a0a0a" pressed "#636363" active "#626262"]
+    ttk::style map TEntry -foreground [list disabled $theme_colors(-disfg) pressed "#636363" active "#626262"]
 
     ttk::style element create Entry.field image \
       [list $I(textbox-rest) \
@@ -282,7 +282,7 @@ namespace eval ttk::theme::sv_light {
 
     ttk::style configure TCombobox -foreground $theme_colors(-fg) -padding {6 1 0 2}
     ttk::style configure ComboboxPopdownFrame -borderwidth 1 -relief solid
-    ttk::style map TCombobox -foreground [list disabled "#0a0a0a" pressed "#636363" active "#626262"]
+    ttk::style map TCombobox -foreground [list disabled $theme_colors(-disfg) pressed "#636363" active "#626262"]
     
     ttk::style map TCombobox -selectbackground [list \
       {readonly hover} $theme_colors(-selbg) \
@@ -321,7 +321,7 @@ namespace eval ttk::theme::sv_light {
     }
 
     ttk::style configure TSpinbox -foreground $theme_colors(-fg) -padding {6 1 0 2}
-    ttk::style map TSpinbox -foreground [list disabled "#0a0a0a" pressed "#636363" active "#626262"]
+    ttk::style map TSpinbox -foreground [list disabled $theme_colors(-disfg) pressed "#636363" active "#626262"]
 
     ttk::style element create Spinbox.field image \
       [list $I(textbox-rest) \
