@@ -147,7 +147,7 @@ namespace eval ttk::theme::sv_light {
       }
     }
 
-    ttk::style configure TCheckbutton -padding 4 -width 10
+    ttk::style configure TCheckbutton -padding 4
 
     ttk::style element create Checkbutton.indicator image \
       [list $I(check-unsel-rest) \
@@ -240,7 +240,7 @@ namespace eval ttk::theme::sv_light {
       }
     }
 
-    ttk::style configure TRadiobutton -padding 4 -width 10
+    ttk::style configure TRadiobutton -padding 4
 
     ttk::style element create Radiobutton.indicator image \
       [list $I(radio-unsel-rest) \
