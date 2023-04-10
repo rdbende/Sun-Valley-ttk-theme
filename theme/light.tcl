@@ -34,7 +34,7 @@ namespace eval ttk::theme::sv_light {
       }
     }
 
-    ttk::style configure TButton -padding {8 2 8 3} -anchor center -foreground $theme_colors(-fg) -width 12
+    ttk::style configure TButton -padding {8 2 8 3} -anchor center -foreground $theme_colors(-fg)
     ttk::style map TButton -foreground [list disabled "#a2a2a2" pressed "#636363" active "#1a1a1a"]
     
     ttk::style element create Button.button image \
@@ -57,7 +57,7 @@ namespace eval ttk::theme::sv_light {
       }
     }
 
-    ttk::style configure Toolbutton -padding {8 2 8 3} -anchor center -width 12
+    ttk::style configure Toolbutton -padding {8 2 8 3} -anchor center
     
     ttk::style element create Toolbutton.button image \
       [list $I(empty) \
@@ -101,7 +101,7 @@ namespace eval ttk::theme::sv_light {
       }
     }
 
-    ttk::style configure TMenubutton -padding {8 2 13 3} -width 10
+    ttk::style configure TMenubutton -padding {8 2 13 3}
 
     ttk::style element create Menubutton.button image \
       [list $I(button-rest) \
@@ -124,7 +124,7 @@ namespace eval ttk::theme::sv_light {
       }
     }
     
-    ttk::style configure TOptionMenu -padding {8 2 13 3} -width 10
+    ttk::style configure TOptionMenu -padding {8 2 13 3}
 
     ttk::style element create OptionMenu.button image \
       [list $I(button-rest) \
