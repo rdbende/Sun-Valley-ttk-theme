@@ -13,7 +13,7 @@ with (Path(__file__).parent / "README.md").open() as file:
 
 setup(
     name="sv_ttk",
-    version="2.4.3",
+    version="2.4.4",
     license="MIT",
     author="rdbende",
     author_email="rdbende@gmail.com",
