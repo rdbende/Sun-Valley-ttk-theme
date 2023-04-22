@@ -12,6 +12,10 @@ pip install sv-ttk
 
 
 ### Usage
+❕**Note:**
+_The theme will only work with themable (`tkinter.ttk`) widgets, and not with plain Tkinter widgets, these will only get the colorscheme.
+Please don't open issues about the theme not working with plain Tkinter widgets._
+
 For detailed documentation, see the [wiki page](https://github.com/rdbende/Sun-Valley-ttk-theme/wiki/Usage-with-Python)
 
 ```python
