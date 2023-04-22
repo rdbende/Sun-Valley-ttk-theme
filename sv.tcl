@@ -16,6 +16,10 @@ font create SunValleyTitleLargeFont -family "Segoe UI Variable$static Display Se
 font create SunValleyDisplayFont -family "Segoe UI Variable$static Display Semibold" -size -68
 
 proc config_input_font {w} {
+  set font_config [w config -font]
+  if {[lindex $font_config 3] != [lindex $font_config 4]} {
+    return
+  }
   if {[ttk::style theme use] in [list "sun-valley-dark" "sun-valley-light"]} {
     $w configure -font SunValleyBodyFont
   }
