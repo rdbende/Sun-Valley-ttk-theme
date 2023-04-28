@@ -57,28 +57,26 @@ set ::spriteinfo [list \
   check-unsel-hover 182 40 20 20 \
   check-unsel-pressed 182 60 20 20 \
   check-unsel-rest 180 80 20 20 \
-  g2866 180 100 20 20 \
-  g2871 180 120 20 20 \
-  progressbar-bar-hor 180 140 20 5 \
+  progressbar-bar-hor 180 100 20 5 \
   progressbar-bar-vert 172 80 5 20 \
   progressbar-trough-hor 152 80 20 5 \
   progressbar-trough-vert 172 100 5 20 \
-  radio-dis 180 145 20 20 \
-  radio-focus-hover 180 165 20 20 \
-  radio-focus 160 176 20 20 \
-  radio-hover 140 178 20 20 \
-  radio-pressed 0 192 20 20 \
-  radio-rest 20 192 20 20 \
-  radio-unsel-dis 40 192 20 20 \
-  radio-unsel-focus-hover 180 185 20 20 \
-  radio-unsel-focus 60 184 20 20 \
-  radio-unsel-hover 80 184 20 20 \
-  radio-unsel-pressed 100 184 20 20 \
-  radio-unsel-rest 120 184 20 20 \
+  radio-dis 180 105 20 20 \
+  radio-focus-hover 180 125 20 20 \
+  radio-focus 180 145 20 20 \
+  radio-hover 180 165 20 20 \
+  radio-pressed 160 176 20 20 \
+  radio-rest 140 178 20 20 \
+  radio-unsel-dis 0 192 20 20 \
+  radio-unsel-focus-hover 20 192 20 20 \
+  radio-unsel-focus 40 192 20 20 \
+  radio-unsel-hover 180 185 20 20 \
+  radio-unsel-pressed 60 184 20 20 \
+  radio-unsel-rest 80 184 20 20 \
   scrollbar-thumb-hor 160 196 20 12 \
-  scrollbar-thumb-vert 202 0 12 20 \
-  scrollbar-trough-hor 140 198 20 12 \
-  scrollbar-trough-vert 202 20 12 20 \
+  scrollbar-thumb-vert 100 184 12 20 \
+  scrollbar-trough-hor 112 198 20 12 \
+  scrollbar-trough-vert 202 0 12 20 \
   textbox-dis 0 212 20 20 \
   textbox-error 20 212 20 20 \
   textbox-focus 40 212 20 20 \
@@ -88,7 +86,7 @@ set ::spriteinfo [list \
   empty 152 64 10 10 \
   grip 152 85 10 10 \
   right 162 85 5 10 \
-  sep 202 40 10 10 \
+  sep 202 20 10 10 \
   up 40 55 10 5 \
   scrollbar-down 132 138 8 6 \
   scrollbar-left 44 144 6 8 \
