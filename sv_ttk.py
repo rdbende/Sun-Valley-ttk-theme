@@ -1,6 +1,17 @@
+import sys
 import tkinter
 from functools import partial
 from pathlib import Path
+
+
+def get_default_root():
+    if sys.version_info >= (3, 8):
+        return tkinter._get_default_root()
+    else:
+        try:
+            return tkinter._default_root
+        except AttributeError:
+            raise RuntimeError
 
 
 class SunValleyTtkTheme:
@@ -15,7 +26,7 @@ class SunValleyTtkTheme:
 
         if root is None:
             try:
-                cls.tcl = tkinter._get_default_root()
+                cls.tcl = get_default_root()
             except RuntimeError:
                 raise RuntimeError(
                     "can't set theme, because tkinter is configured to not support"
