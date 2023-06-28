@@ -1,4 +1,3 @@
-
 name: Generate sprite sheet
 
 on:
@@ -6,6 +5,7 @@ on:
     paths:
       - 'src/dark/**.png'
       - 'src/light/**.png'
+      - 'src/spritesheet_generator.js'
 
 jobs:
   deploy:
@@ -24,4 +24,4 @@ jobs:
     - uses: stefanzweifel/git-auto-commit-action@v4
       with:
         commit_message: "Automation: Update sprite sheets"
-        file_pattern: theme/*.*
+        file_pattern: sv_ttk/theme/*.*

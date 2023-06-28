@@ -47,6 +47,7 @@ for (const theme of ["dark", "light"]) {
         })))
         .png({
             compressionLevel: 9,
+            colors: 70,  // it would fit into 60
         })
         .toBuffer();
 
