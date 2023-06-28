@@ -1,20 +1,86 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <svg
-   xmlns:dc="http://purl.org/dc/elements/1.1/"
-   xmlns:cc="http://creativecommons.org/ns#"
-   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
-   xmlns:svg="http://www.w3.org/2000/svg"
-   xmlns="http://www.w3.org/2000/svg"
-   xmlns:xlink="http://www.w3.org/1999/xlink"
-   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
-   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
    width="262.00363"
    height="284.99866"
    viewBox="0 0 69.321795 75.405898"
    version="1.1"
    id="svg513"
    sodipodi:docname="light.svg"
-   inkscape:version="1.0.2 (e86c870879, 2021-01-15)">
+   inkscape:version="1.2.2 (b0a8486541, 2022-12-01)"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:xlink="http://www.w3.org/1999/xlink"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:dc="http://purl.org/dc/elements/1.1/">
+  <g
+     id="lite-nav-dis">
+    <rect
+       style="fill:#8a8a8a;fill-opacity:1;stroke-width:0.248167"
+       id="rect3508"
+       width="5.8208337"
+       height="0.79375005"
+       x="34.568195"
+       y="69.056252"
+       rx="0.39687502"
+       ry="0.39687502"
+       inkscape:export-filename="lite-nav-rest.png"
+       inkscape:export-xdpi="96"
+       inkscape:export-ydpi="96" />
+    <rect
+       style="fill:#ff0000;fill-opacity:0;stroke-width:0.261514"
+       id="rect4348"
+       width="7.4083338"
+       height="2.3812501"
+       x="33.774445"
+       y="68.262146" />
+  </g>
+  <g
+     id="lite-nav-selected">
+    <rect
+       style="fill:#0560b6;fill-opacity:1;stroke-width:0.248167"
+       id="rect2062"
+       width="5.8208337"
+       height="0.79375005"
+       x="34.568195"
+       y="71.4375"
+       rx="0.39687502"
+       ry="0.39687502"
+       inkscape:export-filename="lite-nav-rest.png"
+       inkscape:export-xdpi="96"
+       inkscape:export-ydpi="96" />
+    <rect
+       style="fill:#ff0000;fill-opacity:0;stroke-width:0.261514"
+       id="rect2064"
+       width="7.4083338"
+       height="2.3812501"
+       x="33.774445"
+       y="70.643394" />
+  </g>
+  <g
+     id="lite-nav-hover">
+    <rect
+       style="fill:#1e6fbc;fill-opacity:1;stroke-width:0.248167"
+       id="rect2066"
+       width="5.8208337"
+       height="0.79375005"
+       x="34.568195"
+       y="73.818748"
+       rx="0.39687502"
+       ry="0.39687502"
+       inkscape:export-filename="lite-nav-rest.png"
+       inkscape:export-xdpi="96"
+       inkscape:export-ydpi="96" />
+    <rect
+       style="fill:#ff0000;fill-opacity:0;stroke-width:0.261514"
+       id="rect2068"
+       width="7.4083338"
+       height="2.3812501"
+       x="33.774445"
+       y="73.024643" />
+  </g>
   <sodipodi:namedview
      pagecolor="#333333"
      bordercolor="#666666"
@@ -25,19 +91,20 @@
      inkscape:pageopacity="0"
      inkscape:pageshadow="2"
      inkscape:window-width="1680"
-     inkscape:window-height="972"
+     inkscape:window-height="969"
      id="namedview443"
      showgrid="false"
      inkscape:pagecheckerboard="true"
      inkscape:showpageshadow="false"
-     inkscape:zoom="1.8235998"
-     inkscape:cx="64.001987"
-     inkscape:cy="159.76519"
+     inkscape:zoom="14.588798"
+     inkscape:cx="232.50716"
+     inkscape:cy="222.12248"
      inkscape:window-x="0"
-     inkscape:window-y="0"
+     inkscape:window-y="35"
      inkscape:window-maximized="1"
      inkscape:current-layer="svg513"
-     inkscape:document-rotation="0" />
+     inkscape:document-rotation="0"
+     inkscape:deskcolor="#333333" />
   <title
      id="title515">Sun Valley light</title>
   <defs
@@ -3030,5 +3097,69 @@
        x="13.493756"
        y="-64.822395"
        transform="scale(1,-1)" />
+  </g>
+  <rect
+     style="opacity:1;fill:#e7e7e7;fill-opacity:1;stroke-width:0.271011"
+     id="lite-nav-focus-inactive"
+     width="5.291667"
+     height="5.291667"
+     x="57.940872"
+     y="52.635258" />
+  <g
+     id="lite-nav-focus-ring">
+    <g
+       id="g122332-2-6"
+       transform="translate(47.35754,57.926926)">
+      <rect
+         style="fill:#313131;fill-opacity:1;stroke-width:0.137344;stroke-linecap:round"
+         id="rect114660-8-7"
+         width="5.2916675"
+         height="5.2916675"
+         x="10.583334"
+         y="4.4472657e-08" />
+      <rect
+         style="fill:#217346;fill-opacity:1;stroke:none;stroke-width:0;stroke-linecap:square;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:396.85;stroke-opacity:0"
+         id="rect114662-9-5"
+         width="5.2916641"
+         height="5.2916641"
+         x="10.583334"
+         y="4.4472657e-08"
+         rx="1.0583328"
+         ry="1.0583328" />
+      <rect
+         style="fill:#313131;fill-opacity:1;stroke:#0339a6;stroke-width:0;stroke-linecap:square;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:396.85;stroke-opacity:0"
+         id="rect114664-7-3"
+         width="4.7624979"
+         height="4.7624984"
+         x="10.847917"
+         y="0.2645829"
+         rx="0.79374999"
+         ry="0.79374999" />
+    </g>
+    <rect
+       style="fill:#e7e7e7;fill-opacity:1;stroke-width:0.137344;stroke-linecap:round"
+       id="rect169947-3-5"
+       width="5.2916675"
+       height="5.2916675"
+       x="57.940872"
+       y="57.926926" />
+    <rect
+       style="fill:#1c1c1c;fill-opacity:1;stroke:none;stroke-width:0;stroke-linecap:square;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:396.85;stroke-opacity:0"
+       id="rect169949-6-6"
+       width="5.2916641"
+       height="5.2916641"
+       x="57.940872"
+       y="57.926926"
+       rx="1.0583328"
+       ry="1.0583328" />
+    <rect
+       style="fill:#e7e7e7;fill-opacity:1;stroke:#0339a6;stroke-width:0;stroke-linecap:square;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:396.85;stroke-opacity:0"
+       id="rect169951-1-2"
+       width="4.7624979"
+       height="4.7624984"
+       x="58.205456"
+       y="58.191509"
+       rx="0.79374999"
+       ry="0.79374999" />
   </g>
 </svg>

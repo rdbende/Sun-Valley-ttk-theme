@@ -415,6 +415,39 @@ namespace eval ttk::theme::sv_light {
     ttk::style element create Labelframe.border image $I(card) -border 5 -padding 4 -sticky nsew
     ttk::style configure TLabelframe.Label -font SunValleyBodyStrongFont -foreground "#676767"
 
+    # Pages.TNotebook
+    ttk::style layout Pages.TNotebook {
+      Pages.Notebook.border -children {
+        Pages.TNotebook.Tab -expand 1
+      }
+    }
+    
+    ttk::style layout Pages.TNotebook.Tab {
+      Pages.Notebook.tab -children {
+        Pages.Notebook.focus -side top -sticky nswe -children {
+          Pages.Notebook.padding -side top -sticky nswe -children {
+            Pages.Notebook.label -side top -sticky {}
+          }
+        }
+      }    
+    }
+
+    ttk::style configure Pages.TNotebook -padding 1
+    ttk::style configure Pages.TNotebook.Tab -focuscolor $theme_colors(-accent)
+    ttk::style element create Pages.Notebook.border image $I(notebook-border) -border 5 -padding 5
+
+    ttk::style element create Pages.Notebook.tab image \
+      [list $I(empty) \
+        disabled $I(lite-nav-dis) \
+        {selected active} $I(lite-nav-hover) \
+        selected $I(lite-nav-selected) \
+      ] -sticky s -padding {14 8}
+
+    ttk::style element create Pages.Notebook.focus image \
+      [list $I(lite-nav-focus-inactive) \
+        focus $I(lite-nav-focus-ring) \
+      ] -border 4 -sticky nsew
+
     # Notebook
     ttk::style layout TNotebook {
       Notebook.border -children {
