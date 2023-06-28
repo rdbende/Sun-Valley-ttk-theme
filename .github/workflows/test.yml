@@ -19,6 +19,8 @@ jobs:
       with:
         python-version: ${{ matrix.python-version }}
         cache: pip
+    - if: matrix.os == 'macos-latest'
+      run: brew install tcl-tk
     - run: |
           python3 -m pip install .
           python3 -m pip install pytest
