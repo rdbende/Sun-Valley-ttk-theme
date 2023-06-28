@@ -10,7 +10,7 @@ def root():
     root = tkinter.Tk()
     yield root
     try:
-        default_root =  tkinter._get_default_root()
+        default_root = tkinter._default_root()
         if default_root:
             default_root.destroy()
     except RuntimeError:
