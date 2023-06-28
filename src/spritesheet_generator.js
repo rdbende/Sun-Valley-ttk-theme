@@ -50,6 +50,6 @@ for (const theme of ["dark", "light"]) {
         })
         .toBuffer();
 
-    fs.writeFileSync(`../theme/spritesheet_${theme}.png`, packedImage);
-    fs.writeFileSync(`../theme/sprites_${theme}.tcl`, `set ::spriteinfo [list \\\n  ${packedBin.rects.map(e => `${path.parse(e.imagePath).name} ${e.x} ${e.y} ${e.width} ${e.height}`).join(' \\\n  ')} \\\n]\n`);
+    fs.writeFileSync(`../sv_ttk/theme/spritesheet_${theme}.png`, packedImage);
+    fs.writeFileSync(`../sv_ttk/theme/sprites_${theme}.tcl`, `set ::spriteinfo [list \\\n  ${packedBin.rects.map(e => `${path.parse(e.imagePath).name} ${e.x} ${e.y} ${e.width} ${e.height}`).join(' \\\n  ')} \\\n]\n`);
 }

@@ -25,7 +25,7 @@ setup(
     description="A gorgeous theme for Tkinter, based on Windows 11's UI",
     long_description=long_description,
     long_description_content_type="text/markdown",
-    py_packages=["sv_ttk"],
+    packages=["sv_ttk"],
     package_data={"sv_ttk": ["sv.tcl", "theme/*"]},
     python_requires=">=3.7",
     classifiers=[
