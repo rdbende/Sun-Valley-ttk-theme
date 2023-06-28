@@ -1,7 +1,7 @@
 source [file join [file dirname [info script]] sprites_dark.tcl]
 
 namespace eval ttk::theme::sv_dark {
-  package provide ttk::theme::sv_dark 2.4
+  package provide ttk::theme::sv_dark 2.5
 
   array set theme_colors {
     -fg      "#fafafa"

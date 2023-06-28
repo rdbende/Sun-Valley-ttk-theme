@@ -3,7 +3,6 @@ from pathlib import Path
 
 from setuptools import setup
 
-
 long_description = re.sub(
     r"(?s)<picture>.*</picture>",
     '<img alt="Cover image" src="https://raw.githubusercontent.com/rdbende/Sun-Valley-ttk-theme/master/assets/hero_light.png">',
@@ -13,10 +12,10 @@ long_description = re.sub(
 
 setup(
     name="sv_ttk",
-    version="2.4.5",
+    version="2.5.0",
     license="MIT",
     author="rdbende",
-    author_email="rdbende@gmail.com",
+    author_email="rdbende@proton.me",
     url="https://github.com/rdbende/Sun-Valley-ttk-theme",
     project_urls={
         "Source": "https://github.com/rdbende/Sun-Valley-ttk-theme",
@@ -44,17 +43,18 @@ setup(
         "Operating System :: OS Independent",
     ],
     keywords=[
-        "dark-theme",
-        "modern",
-        "sun-valley",
+        "sv-ttk",
         "tcl",
         "tcl/tk",
         "theme",
-        "theme",
         "tile",
         "tk",
-        "tkinter",
         "ttk",
+        "tkinter",
+        "modern",
+        "fluent",
+        "dark-theme",
+        "sun-valley",
         "windows-11",
         "winui",
     ],

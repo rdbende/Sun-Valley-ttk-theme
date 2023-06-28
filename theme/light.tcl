@@ -1,7 +1,7 @@
 source [file join [file dirname [info script]] sprites_light.tcl]
 
 namespace eval ttk::theme::sv_light {
-  package provide ttk::theme::sv_light 2.4
+  package provide ttk::theme::sv_light 2.5
 
   array set theme_colors {
     -fg      "#1c1c1c"
