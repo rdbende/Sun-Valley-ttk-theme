@@ -3,12 +3,12 @@ from pathlib import Path
 
 from setuptools import setup
 
-with (Path(__file__).parent / "README.md").open() as file:
-    long_description = re.sub(
-        r"(?s)<picture>.*</picture>",
-        '<img alt="Cover image" src="https://raw.githubusercontent.com/rdbende/Sun-Valley-ttk-theme/master/assets/hero_light.png">',
-        file.read(),
-    )
+
+long_description = re.sub(
+    r"(?s)<picture>.*</picture>",
+    '<img alt="Cover image" src="https://raw.githubusercontent.com/rdbende/Sun-Valley-ttk-theme/master/assets/hero_light.png">',
+    (Path(__file__).parent / "README.md").read_text(),
+)
 
 
 setup(
@@ -26,7 +26,7 @@ setup(
     description="A gorgeous theme for Tkinter, based on Windows 11's UI",
     long_description=long_description,
     long_description_content_type="text/markdown",
-    packages=["sv_ttk"],
+    py_packages=["sv_ttk"],
     package_data={"sv_ttk": ["sv.tcl", "theme/*"]},
     python_requires=">=3.4",
     classifiers=[
@@ -40,6 +40,8 @@ setup(
         "Programming Language :: Python :: 3.8",
         "Programming Language :: Python :: 3.9",
         "Programming Language :: Python :: 3.10",
+        "Programming Language :: Python :: 3.11",
+        "Programming Language :: Python :: 3.12",
         "Programming Language :: Tcl",
         "License :: OSI Approved :: MIT License",
         "Operating System :: OS Independent",

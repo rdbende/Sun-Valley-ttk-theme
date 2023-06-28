@@ -1,60 +1,60 @@
+import tkinter
 from functools import partial
 from pathlib import Path
 
-inited = False
-root = None
 
+class SunValleyTtkTheme:
+    initialized = False
 
-def init_theme(func):
-    def wrapper(*args, **kwargs):
-        global inited
-        global root
+    @classmethod
+    def load_theme(cls, root):
+        if cls.initialized:
+            return
 
-        if not inited:
-            from tkinter import _default_root
+        theme_file = (Path(__file__).parent / "sv.tcl").absolute()
 
-            path = (Path(__file__).parent / "sv.tcl").resolve()
-
+        if root is None:
             try:
-                _default_root.tk.call("source", str(path))
-            except AttributeError:
+                cls.tcl = tkinter._get_default_root()
+            except RuntimeError:
                 raise RuntimeError(
-                    "can't set theme, because tkinter is not initialized. "
-                    + "Please create a tkinter.Tk instance first and then set the theme."
+                    "can't set theme, because tkinter is configured to not support"
+                    + " default root, and no explicit root was provided."
                 ) from None
-            else:
-                inited = True
-                root = _default_root
+        else:
+            cls.tcl = root
 
-        return func(*args, **kwargs)
+        cls.tcl.call("source", str(theme_file))
+        cls.initialized = True
 
-    return wrapper
+    @classmethod
+    def get_theme(cls, root=None):
+        cls.load_theme(root)
 
+        theme = cls.tcl.call("ttk::style", "theme", "use")
+        return {"sun-valley-dark": "dark", "sun-valley-light": "light"}.get(
+            theme, theme
+        )
 
-@init_theme
-def set_theme(theme):
-    if theme not in {"dark", "light"}:
-        raise RuntimeError("not a valid theme name: {}".format(theme))
+    @classmethod
+    def set_theme(cls, theme, root=None):
+        cls.load_theme(root)
+        if theme not in {"dark", "light"}:
+            raise RuntimeError("not a valid sv_ttk theme name: {}".format(theme))
 
-    assert root is not None
-    root.tk.call("set_theme", theme)
+        cls.tcl.call("set_theme", theme)
 
-
-@init_theme
-def get_theme():
-    assert root is not None
-    theme = root.tk.call("ttk::style", "theme", "use")
-
-    return {"sun-valley-dark": "dark", "sun-valley-light": "light"}.get(theme, theme)
-
-
-@init_theme
-def toggle_theme():
-    if get_theme() == "light":
-        use_dark_theme()
-    else:
-        use_light_theme()
+    @classmethod
+    def toggle_theme(cls, root=None):
+        cls.load_theme(root)
+        if cls.get_theme() == "light":
+            cls.set_theme("dark")
+        else:
+            cls.set_theme("light")
 
 
+set_theme = SunValleyTtkTheme.set_theme
+get_theme = SunValleyTtkTheme.get_theme
 use_dark_theme = partial(set_theme, "dark")
 use_light_theme = partial(set_theme, "light")
+toggle_theme = SunValleyTtkTheme.toggle_theme
