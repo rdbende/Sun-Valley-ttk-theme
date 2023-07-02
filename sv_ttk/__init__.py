@@ -13,7 +13,15 @@ def _get_default_root() -> tkinter.Misc:
         try:
             return tkinter._default_root
         except AttributeError:
-            raise RuntimeError("No master specified and tkinter is configured to not support default root. Use the `root` argument.")
+            raise RuntimeError(
+                "can't set theme, because tkinter is configured to not support implicit default root,"
+                + " and no explicit root was provided. Use the `root` argument."
+            )
+    except RuntimeError as e:
+        raise RuntimeError(
+            "can't set theme, because tkinter is configured to not support implicit default root,"
+            + " and no explicit root was provided. Use the `root` argument."
+        ) from e
 
 
 class SunValleyTtkTheme:
@@ -27,13 +35,7 @@ class SunValleyTtkTheme:
         theme_file = (Path(__file__).parent / "sv.tcl").absolute()
 
         if root is None:
-            try:
-                cls.tcl = _get_default_root()
-            except RuntimeError:
-                raise RuntimeError(
-                    "can't set theme, because tkinter is configured to not support"
-                    + " default root, and no explicit root was provided."
-                ) from None
+            cls.tcl = _get_default_root()
         else:
             cls.tcl = root
 

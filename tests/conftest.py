@@ -10,8 +10,6 @@ def root():
     root = tkinter.Tk()
     yield root
     try:
-        default_root = sv_ttk.get_default_root()
-        if default_root:
-            default_root.destroy()
-    except RuntimeError:
+        sv_ttk._get_default_root().destroy()
+    except (AttributeError, RuntimeError):
         pass
