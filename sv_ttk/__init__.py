@@ -7,7 +7,8 @@ from pathlib import Path
 
 
 def get_default_root() -> tkinter.Misc:
-    if sys.version_info >= (3, 10): # Python 3.10.0 added _get_default_root() function
+    if sys.version_info >= (3, 9, 2): 
+        # LOL, _get_default_root function was added in python 3.9.2
         return tkinter._get_default_root()
     else:
         try:
