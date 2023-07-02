@@ -20,7 +20,6 @@ jobs:
         python-version: ${{ matrix.python-version }}
         cache: pip
     - run: |
-          python3 -m pip install .
           python3 -m pip install pytest
     - uses: GabrielBB/xvfb-action@v1.4
       with:
