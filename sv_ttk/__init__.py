@@ -6,14 +6,14 @@ from functools import partial
 from pathlib import Path
 
 
-def get_default_root() -> tkinter.Misc:
-    if sys.version_info >= (3, 8):
+def _get_default_root() -> tkinter.Misc:
+    try:
         return tkinter._get_default_root()
-    else:
+    except AttributeError:
         try:
             return tkinter._default_root
         except AttributeError:
-            raise RuntimeError
+            raise RuntimeError("No master specified and tkinter is configured to not support default root. Use the `root` argument.")
 
 
 class SunValleyTtkTheme:
@@ -28,7 +28,7 @@ class SunValleyTtkTheme:
 
         if root is None:
             try:
-                cls.tcl = get_default_root()
+                cls.tcl = _get_default_root()
             except RuntimeError:
                 raise RuntimeError(
                     "can't set theme, because tkinter is configured to not support"
