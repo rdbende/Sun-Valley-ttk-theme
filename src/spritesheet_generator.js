@@ -48,7 +48,7 @@ for (const theme of ["dark", "light"]) {
     )
     .png({
       compressionLevel: 9,
-      // colors: 70, // it would fit into 60
+      colors: 70, // pallette mapped mode, would even fit into 60; removing it doesn't seem to fix #100
     })
     .toBuffer();
 
