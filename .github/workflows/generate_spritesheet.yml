@@ -2,6 +2,8 @@ name: Generate sprite sheet
 
 on:
   push:
+    branches:
+      - "*"
     paths:
       - 'src/dark/**.png'
       - 'src/light/**.png'
