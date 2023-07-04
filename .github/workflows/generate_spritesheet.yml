@@ -8,6 +8,7 @@ on:
       - 'src/dark/**.png'
       - 'src/light/**.png'
       - 'src/spritesheet_generator.js'
+      - 'src/packages.json'
 
 jobs:
   deploy:
