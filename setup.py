@@ -12,7 +12,7 @@ long_description = re.sub(
 
 setup(
     name="sv_ttk",
-    version="2.5.3",
+    version="2.5.4",
     license="MIT",
     author="rdbende",
     author_email="rdbende@proton.me",
