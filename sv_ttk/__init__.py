@@ -56,18 +56,15 @@ class SunValleyTtkTheme:
     @classmethod
     def set_theme(cls, theme: str, root: tkinter.Tk | None = None) -> None:
         cls.load_theme(root)
-        if theme not in {"dark", "light"}:
+        if theme.lower() not in {"dark", "light"}: # Maybe someone will write Dark
             raise RuntimeError("not a valid sv_ttk theme name: {}".format(theme))
 
-        cls.tcl.call("set_theme", theme)
+        cls.tcl.call("set_theme", theme.lower())
 
     @classmethod
     def toggle_theme(cls, root: tkinter.Tk | None = None) -> None:
         cls.load_theme(root)
-        if cls.get_theme() == "light":
-            cls.set_theme("dark")
-        else:
-            cls.set_theme("light")
+        cls.set_theme("dark" if cls.get_theme() == "light" else "light")
 
 
 set_theme = SunValleyTtkTheme.set_theme
