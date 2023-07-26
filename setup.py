@@ -26,7 +26,7 @@ setup(
     long_description=long_description,
     long_description_content_type="text/markdown",
     packages=["sv_ttk"],
-    package_data={"sv_ttk": ["sv.tcl", "theme/*"]},
+    package_data={"sv_ttk": ["sv.tcl", "theme/*", "py.typed"]},
     python_requires=">=3.7",
     classifiers=[
         "Intended Audience :: Developers",
