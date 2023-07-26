@@ -14,7 +14,7 @@ def _load_theme(style: ttk.Style) -> None:
 
     if not hasattr(style.master, "_sv_ttk_loaded"):
         style.tk.call("source", str(TCL_THEME_FILE_PATH))
-        style.master._sv_ttk_loaded = True
+        style.master._sv_ttk_loaded = True  # type: ignore
 
 
 def get_theme(root: tkinter.Tk | None = None) -> str:
