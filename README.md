@@ -1,18 +1,14 @@
 <div align="center">
+  
+# Sun Valley ttk theme
+Make your Tkinter application look better than ever with just two lines of code!
 
-<h1>Sun Valley ttk theme</h1>
-Make you Tkinter application look like never before!
-
-[![PyPi downloads badge](https://static.pepy.tech/badge/sv-ttk)](https://pypi.org/project/sv-ttk)
-[![Documentation](https://img.shields.io/badge/-documentation-%2398b427)](https://github.com/rdbende/Sun-Valley-ttk-theme/wiki/Usage-with-Python)
+![Screenshot of Sun Valley ttk theme](assets/screenshot.png)
 
 </div>
 
 
-![Screenshot of Sun Valley ttk theme](assets/screenshot.png)
-
-
-## Installation 
+## Installation [![PyPi downloads badge](https://static.pepy.tech/badge/sv-ttk)](https://pypi.org/project/sv-ttk)
 The theme is easily installable as a Python package
 
 ```
@@ -20,12 +16,12 @@ pip install sv-ttk
 ```
 
 
-### Usage
-> ❕**Note:**
-> The theme will only work with themable (`tkinter.ttk`) widgets, and not with the regular Tkinter widgets, they only get the colorscheme.
-Please don't open issues about the theme not working with plain Tkinter widgets.
+## Usage [![Documentation](https://img.shields.io/badge/-documentation-%23c368c4)](https://github.com/rdbende/Sun-Valley-ttk-theme/wiki/Usage-with-Python)
+> **Note:**
+> 
+> The theme will only be applied to themable (`tkinter.ttk`) widgets, and not with the regular Tkinter widgets, they only benefit from the colorscheme.
 
-For detailed documentation, see the [wiki page](https://github.com/rdbende/Sun-Valley-ttk-theme/wiki/Usage-with-Python).
+For detailed documentation, visit the [wiki page](https://github.com/rdbende/Sun-Valley-ttk-theme/wiki/Usage-with-Python).
 
 ```python
 import tkinter
