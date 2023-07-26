@@ -3,7 +3,7 @@ source [file join [file dirname [info script]] sprites_light.tcl]
 namespace eval ttk::theme::sv_light {
   package provide ttk::theme::sv_light 2.5
 
-  array set theme_colors {
+  array set colors {
     -fg      "#1c1c1c"
     -bg      "#fafafa"
     -disfg   "#a0a0a0"
@@ -34,7 +34,7 @@ namespace eval ttk::theme::sv_light {
       }
     }
 
-    ttk::style configure TButton -padding {8 2 8 3} -anchor center -foreground $theme_colors(-fg)
+    ttk::style configure TButton -padding {8 2 8 3} -anchor center -foreground $colors(-fg)
     ttk::style map TButton -foreground [list disabled "#a2a2a2" pressed "#636363" active "#1a1a1a"]
     
     ttk::style element create Button.button image \
@@ -84,11 +84,11 @@ namespace eval ttk::theme::sv_light {
       [list $I(button-accent-rest) \
         {selected disabled} $I(button-accent-dis) \
         disabled $I(button-accent-dis) \
-        {active focus} $I(button-accent-focus-hover) \
-        focus $I(button-accent-focus) \
         selected $I(button-accent-rest) \
         pressed $I(button-accent-pressed) \
+        {active focus} $I(button-accent-focus-hover) \
         active $I(button-accent-hover) \
+        focus $I(button-accent-focus) \
       ] -border 4 -sticky nsew
 
     # Menubutton
@@ -204,7 +204,7 @@ namespace eval ttk::theme::sv_light {
       }
     }
 
-    ttk::style configure Toggle.TButton -padding {8 2 8 3} -anchor center -foreground $theme_colors(-fg)
+    ttk::style configure Toggle.TButton -padding {8 2 8 3} -anchor center -foreground $colors(-fg)
 
     ttk::style map Toggle.TButton -foreground \
       [list {selected disabled} "#ffffff" \
@@ -258,8 +258,8 @@ namespace eval ttk::theme::sv_light {
       ] -width 26 -sticky w
 
     # Entry
-    ttk::style configure TEntry -foreground $theme_colors(-fg) -padding {6 1 4 2}
-    ttk::style map TEntry -foreground [list disabled $theme_colors(-disfg) pressed "#636363" active "#626262"]
+    ttk::style configure TEntry -foreground $colors(-fg) -padding {6 1 4 2}
+    ttk::style map TEntry -foreground [list disabled $colors(-disfg) pressed "#636363" active "#626262"]
 
     ttk::style element create Entry.field image \
       [list $I(textbox-rest) \
@@ -280,16 +280,16 @@ namespace eval ttk::theme::sv_light {
       }
     }
 
-    ttk::style configure TCombobox -foreground $theme_colors(-fg) -padding {6 1 0 2}
+    ttk::style configure TCombobox -foreground $colors(-fg) -padding {6 1 0 2}
     ttk::style configure ComboboxPopdownFrame -borderwidth 1 -relief solid
-    ttk::style map TCombobox -foreground [list disabled $theme_colors(-disfg) pressed "#636363" active "#626262"]
+    ttk::style map TCombobox -foreground [list disabled $colors(-disfg) pressed "#636363" active "#626262"]
     
     ttk::style map TCombobox -selectbackground [list \
-      {readonly hover} $theme_colors(-selbg) \
-      {readonly focus} $theme_colors(-selbg) \
+      {readonly hover} $colors(-selbg) \
+      {readonly focus} $colors(-selbg) \
     ] -selectforeground [list \
-      {readonly hover} $theme_colors(-selfg) \
-      {readonly focus} $theme_colors(-selfg) \
+      {readonly hover} $colors(-selfg) \
+      {readonly focus} $colors(-selfg) \
     ]
 
     ttk::style element create Combobox.field image \
@@ -320,8 +320,8 @@ namespace eval ttk::theme::sv_light {
       }
     }
 
-    ttk::style configure TSpinbox -foreground $theme_colors(-fg) -padding {6 1 0 2}
-    ttk::style map TSpinbox -foreground [list disabled $theme_colors(-disfg) pressed "#636363" active "#626262"]
+    ttk::style configure TSpinbox -foreground $colors(-fg) -padding {6 1 0 2}
+    ttk::style map TSpinbox -foreground [list disabled $colors(-disfg) pressed "#636363" active "#626262"]
 
     ttk::style element create Spinbox.field image \
       [list $I(textbox-rest) \
@@ -337,11 +337,15 @@ namespace eval ttk::theme::sv_light {
     ttk::style element create Spinbox.downarrow image $I(down) -width 34 -height 16 -sticky {}
 
     # Progressbar
-    ttk::style element create Horizontal.Progressbar.trough image $I(progressbar-trough-hor) -border 1 -sticky ew
-    ttk::style element create Horizontal.Progressbar.pbar image $I(progressbar-bar-hor) -border 2 -sticky ew
+    ttk::style element create Horizontal.Progressbar.trough image $I(progressbar-trough-hor) \
+      -border 1 -sticky ew
+    ttk::style element create Horizontal.Progressbar.pbar image $I(progressbar-bar-hor) \
+      -border 2 -sticky ew
 
-    ttk::style element create Vertical.Progressbar.trough image $I(progressbar-trough-vert) -border 1 -sticky ns
-    ttk::style element create Vertical.Progressbar.pbar image $I(progressbar-bar-vert) -border 2 -sticky ns
+    ttk::style element create Vertical.Progressbar.trough image $I(progressbar-trough-vert) \
+      -border 1 -sticky ns
+    ttk::style element create Vertical.Progressbar.pbar image $I(progressbar-bar-vert) \
+      -border 2 -sticky ns
 
     # Scale
     ttk::style element create Horizontal.Scale.trough image $I(slider-trough-hor) \
@@ -413,7 +417,7 @@ namespace eval ttk::theme::sv_light {
     }
 
     ttk::style element create Labelframe.border image $I(card) -border 5 -padding 4 -sticky nsew
-    ttk::style configure TLabelframe.Label -font SunValleyBodyStrongFont -foreground "#676767"
+    ttk::style configure TLabelframe.Label -font SunValleyCaptionFont
 
     # Notebook
     ttk::style layout TNotebook {
@@ -423,7 +427,7 @@ namespace eval ttk::theme::sv_light {
     }
 
     ttk::style configure TNotebook -padding 1
-    ttk::style configure TNotebook.Tab -focuscolor $theme_colors(-accent)
+    ttk::style configure TNotebook.Tab -focuscolor $colors(-accent)
     ttk::style element create Notebook.border image $I(notebook-border) -border 5 -padding 5
 
     ttk::style element create Notebook.tab image \
@@ -433,21 +437,20 @@ namespace eval ttk::theme::sv_light {
       ] -border 13 -padding {16 14 16 6} -height 32
 
     # Treeview
+    ttk::style configure Heading -font SunValleyCaptionFont
     ttk::style configure Treeview \
-        -background $theme_colors(-bg) \
-        -rowheight [expr {[font metrics SunValleyBodyFont -linespace] + 4}] \
+        -background $colors(-bg) \
+        -rowheight [expr {[font metrics SunValleyBodyFont -linespace] + 3}] \
         -font SunValleyBodyFont
-    ttk::style map Treeview \
-      -background [list selected "#e7e7e7"] \
-      -foreground [list selected "#191919"]
+
+    ttk::style map Treeview -background {selected "#e7e7e7"} -foreground {selected "#191919"}
 
     ttk::style element create Treeview.field image $I(card) -border 5 -width 0 -height 0
-    
     ttk::style element create Treeheading.cell image \
       [list $I(heading-rest) \
         pressed $I(heading-pressed) \
         active $I(heading-hover)
-      ] -border 5 -padding 15 -sticky nsew
+      ] -border 5 -padding 14 -sticky nsew
     
     ttk::style element create Treeitem.indicator image \
       [list $I(right) \
@@ -456,6 +459,11 @@ namespace eval ttk::theme::sv_light {
       ] -width 26 -sticky {}
 
     # Panedwindow
-    ttk::style configure Sash -lightcolor "#676767" -darkcolor "#676767" -bordercolor "#676767" -sashthickness 4 -gripcount 20
+    ttk::style configure Sash \
+      -lightcolor "#676767" \
+      -darkcolor "#676767" \
+      -bordercolor "#676767" \
+      -sashthickness 4 \
+      -gripcount 20
   }
 }
