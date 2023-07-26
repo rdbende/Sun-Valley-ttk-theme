@@ -19,17 +19,14 @@ def _load_theme(style: ttk.Style) -> None:
 
 def get_theme(root: tkinter.Tk | None = None) -> str:
     style = ttk.Style(master=root)
-    print(id(style.master))
     _load_theme(style)
 
     theme = style.theme_use()
-    print("theme", style.theme_use())
     return {"sun-valley-dark": "dark", "sun-valley-light": "light"}.get(theme, theme)
 
 
 def set_theme(theme: str, root: tkinter.Tk | None = None) -> None:
     style = ttk.Style(master=root)
-    print(id(style.master))
     _load_theme(style)
 
     theme = theme.lower()
@@ -37,9 +34,7 @@ def set_theme(theme: str, root: tkinter.Tk | None = None) -> None:
     if theme not in {"dark", "light"}:
         raise RuntimeError(f"not a valid sv_ttk theme: {theme}")
 
-    print(theme)
     style.theme_use(f"sun-valley-{theme}")
-    print("most:", style.theme_use())
 
 
 def toggle_theme(root: tkinter.Tk | None = None) -> None:
