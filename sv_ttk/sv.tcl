@@ -25,10 +25,11 @@ proc config_entry_font {w} {
   if {[lindex $font_config 3] != [lindex $font_config 4]} {
     return
   }
-  if {[ttk::style theme use] in [list "sun-valley-dark" "sun-valley-light"]} {
+  if {[ttk::style theme use] in {"sun-valley-dark" "sun-valley-light"}} {
     $w configure -font SunValleyBodyFont
   }
 }
+
 
 proc config_menus {w} {
   if {[tk windowingsystem] == "aqua"} {
@@ -38,29 +39,29 @@ proc config_menus {w} {
   set theme [ttk::style theme use]
   if {$theme == "sun-valley-dark"} {
     $w configure \
-        -relief solid \
-        -borderwidth 1 \
-        -activeborderwidth 0 \
-        -background "#202020" \
-        -activebackground $ttk::theme::sv_dark::theme_colors(-selbg) \
-        -activeforeground $ttk::theme::sv_dark::theme_colors(-selfg) \
-        -selectcolor $ttk::theme::sv_dark::theme_colors(-selfg)
+      -relief solid \
+      -borderwidth 1 \
+      -activeborderwidth 0 \
+      -background "#292929" \
+      -activebackground $ttk::theme::sv_dark::colors(-selbg) \
+      -activeforeground $ttk::theme::sv_dark::colors(-selfg) \
+      -selectcolor $ttk::theme::sv_dark::colors(-selfg)
   } elseif {$theme == "sun-valley-light"} {
     $w configure \
-        -relief solid \
-        -borderwidth 1 \
-        -activeborderwidth 0 \
-        -background "#ebebeb" \
-        -activebackground $ttk::theme::sv_dark::theme_colors(-selbg) \
-        -activeforeground $ttk::theme::sv_dark::theme_colors(-selfg) \
-        -selectcolor $ttk::theme::sv_dark::theme_colors(-selfg)
+      -relief solid \
+      -borderwidth 1 \
+      -activeborderwidth 0 \
+      -background "#e7e7e7" \
+      -activebackground $ttk::theme::sv_dark::colors(-selbg) \
+      -activeforeground $ttk::theme::sv_dark::colors(-selfg) \
+      -selectcolor $ttk::theme::sv_dark::colors(-selfg)
   }
 
   if {[[winfo toplevel $w] cget -menu] != $w} {
     if {$theme == "sun-valley-dark"} {
-      $w configure -borderwidth 0 -background $ttk::theme::sv_dark::theme_colors(-bg)
+      $w configure -borderwidth 0 -background $ttk::theme::sv_dark::colors(-bg)
     } elseif {$theme == "sun-valley-light"} {
-      $w configure -borderwidth 0 -background $ttk::theme::sv_light::theme_colors(-bg)
+      $w configure -borderwidth 0 -background $ttk::theme::sv_light::colors(-bg)
     }
   }
 }
@@ -70,54 +71,54 @@ proc configure_colors {} {
   set theme [ttk::style theme use]
   if {$theme == "sun-valley-dark"} {
     ttk::style configure . \
-      -background $ttk::theme::sv_dark::theme_colors(-bg) \
-      -foreground $ttk::theme::sv_dark::theme_colors(-fg) \
-      -troughcolor $ttk::theme::sv_dark::theme_colors(-bg) \
-      -focuscolor $ttk::theme::sv_dark::theme_colors(-selbg) \
-      -selectbackground $ttk::theme::sv_dark::theme_colors(-selbg) \
-      -selectforeground $ttk::theme::sv_dark::theme_colors(-selfg) \
+      -background $ttk::theme::sv_dark::colors(-bg) \
+      -foreground $ttk::theme::sv_dark::colors(-fg) \
+      -troughcolor $ttk::theme::sv_dark::colors(-bg) \
+      -focuscolor $ttk::theme::sv_dark::colors(-selbg) \
+      -selectbackground $ttk::theme::sv_dark::colors(-selbg) \
+      -selectforeground $ttk::theme::sv_dark::colors(-selfg) \
       -insertwidth 1 \
-      -insertcolor $ttk::theme::sv_dark::theme_colors(-fg) \
-      -fieldbackground $ttk::theme::sv_dark::theme_colors(-bg) \
+      -insertcolor $ttk::theme::sv_dark::colors(-fg) \
+      -fieldbackground $ttk::theme::sv_dark::colors(-bg) \
       -font SunValleyBodyFont \
       -borderwidth 0 \
       -relief flat
 
     tk_setPalette \
-      background $ttk::theme::sv_dark::theme_colors(-bg) \
-      foreground $ttk::theme::sv_dark::theme_colors(-fg) \
-      highlightColor $ttk::theme::sv_dark::theme_colors(-selbg) \
-      selectBackground $ttk::theme::sv_dark::theme_colors(-selbg) \
-      selectForeground $ttk::theme::sv_dark::theme_colors(-selfg) \
-      activeBackground $ttk::theme::sv_dark::theme_colors(-selbg) \
-      activeForeground $ttk::theme::sv_dark::theme_colors(-selfg)
-    
-    ttk::style map . -foreground [list disabled $ttk::theme::sv_dark::theme_colors(-disfg)]
+      background $ttk::theme::sv_dark::colors(-bg) \
+      foreground $ttk::theme::sv_dark::colors(-fg) \
+      highlightColor $ttk::theme::sv_dark::colors(-selbg) \
+      selectBackground $ttk::theme::sv_dark::colors(-selbg) \
+      selectForeground $ttk::theme::sv_dark::colors(-selfg) \
+      activeBackground $ttk::theme::sv_dark::colors(-selbg) \
+      activeForeground $ttk::theme::sv_dark::colors(-selfg)
+
+    ttk::style map . -foreground [list disabled $ttk::theme::sv_dark::colors(-disfg)]
   } elseif {$theme == "sun-valley-light"} {
     ttk::style configure . \
-      -background $ttk::theme::sv_light::theme_colors(-bg) \
-      -foreground $ttk::theme::sv_light::theme_colors(-fg) \
-      -troughcolor $ttk::theme::sv_light::theme_colors(-bg) \
-      -focuscolor $ttk::theme::sv_light::theme_colors(-selbg) \
-      -selectbackground $ttk::theme::sv_light::theme_colors(-selbg) \
-      -selectforeground $ttk::theme::sv_light::theme_colors(-selfg) \
+      -background $ttk::theme::sv_light::colors(-bg) \
+      -foreground $ttk::theme::sv_light::colors(-fg) \
+      -troughcolor $ttk::theme::sv_light::colors(-bg) \
+      -focuscolor $ttk::theme::sv_light::colors(-selbg) \
+      -selectbackground $ttk::theme::sv_light::colors(-selbg) \
+      -selectforeground $ttk::theme::sv_light::colors(-selfg) \
       -insertwidth 1 \
-      -insertcolor $ttk::theme::sv_light::theme_colors(-fg) \
-      -fieldbackground $ttk::theme::sv_light::theme_colors(-bg) \
+      -insertcolor $ttk::theme::sv_light::colors(-fg) \
+      -fieldbackground $ttk::theme::sv_light::colors(-bg) \
       -font SunValleyBodyFont \
       -borderwidth 0 \
       -relief flat
 
     tk_setPalette \
-      background $ttk::theme::sv_light::theme_colors(-bg) \
-      foreground $ttk::theme::sv_light::theme_colors(-fg) \
-      highlightColor $ttk::theme::sv_light::theme_colors(-selbg) \
-      selectBackground $ttk::theme::sv_light::theme_colors(-selbg) \
-      selectForeground $ttk::theme::sv_light::theme_colors(-selfg) \
-      activeBackground $ttk::theme::sv_light::theme_colors(-selbg) \
-      activeForeground $ttk::theme::sv_light::theme_colors(-selfg)
-    
-    ttk::style map . -foreground [list disabled $ttk::theme::sv_light::theme_colors(-disfg)]
+      background $ttk::theme::sv_light::colors(-bg) \
+      foreground $ttk::theme::sv_light::colors(-fg) \
+      highlightColor $ttk::theme::sv_light::colors(-selbg) \
+      selectBackground $ttk::theme::sv_light::colors(-selbg) \
+      selectForeground $ttk::theme::sv_light::colors(-selfg) \
+      activeBackground $ttk::theme::sv_light::colors(-selbg) \
+      activeForeground $ttk::theme::sv_light::colors(-selfg)
+
+    ttk::style map . -foreground [list disabled $ttk::theme::sv_light::colors(-disfg)]
   }
 }
 
