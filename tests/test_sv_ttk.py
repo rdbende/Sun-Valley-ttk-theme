@@ -1,6 +1,7 @@
 import tkinter
 from tkinter import ttk
 
+import pytest
 import sv_ttk
 
 
@@ -35,6 +36,12 @@ def test_toggle_theme():
 
     sv_ttk.toggle_theme()
     assert sv_ttk.get_theme() == "light"
+
+
+def test_no_default_root():
+    tkinter.NoDefaultRoot()
+    with pytest.raises(RuntimeError):
+        sv_ttk.get_theme()
 
 
 def test_explicit_root():
