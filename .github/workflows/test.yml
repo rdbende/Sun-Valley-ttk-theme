@@ -7,6 +7,17 @@ on:
   pull_request:
 
 jobs:
+  mypy:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v3
+    - uses: actions/setup-python@v4
+      with:
+        python-version: '3.11'
+        cache: pip
+    - run: python3 -m pip install mypy
+    - run: mypy sv_ttk/__init__.py
+
   pytest:
     strategy:
       matrix:
