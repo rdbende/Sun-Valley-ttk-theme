@@ -1,74 +1,53 @@
 from __future__ import annotations
 
-import sys
 import tkinter
 from functools import partial
 from pathlib import Path
-from typing import ClassVar
+from tkinter import ttk
+
+TCL_THEME_FILE_PATH = Path(__file__).with_name("sv.tcl").absolute()
 
 
-def _get_default_root() -> tkinter.Tk:
-    try:
-        return tkinter._get_default_root()  # type: ignore
-    except AttributeError:
-        try:
-            return tkinter._default_root  # type: ignore
-        except AttributeError:
-            raise RuntimeError(
-                "can't set theme, because tkinter is configured to not support implicit default root,"
-                + " and no explicit root was provided. Use the `root` argument."
-            )
-    except RuntimeError as e:
-        raise RuntimeError(
-            "can't set theme, because tkinter is configured to not support implicit default root,"
-            + " and no explicit root was provided. Use the `root` argument."
-        ) from e
+def _load_theme(style: ttk.Style) -> None:
+    if not isinstance(style.master, tkinter.Tk):
+        raise TypeError("root must be a `tkinter.Tk` instance!")
+
+    if not hasattr(style.master, "_sv_ttk_loaded"):
+        style.tk.call("source", str(TCL_THEME_FILE_PATH))
+        style.master._sv_ttk_loaded = True
 
 
-class SunValleyTtkTheme:
-    initialized = False
-    tcl: ClassVar[tkinter.Tk]
+def get_theme(root: tkinter.Tk | None = None) -> str:
+    style = ttk.Style(master=root)
+    print(id(style.master))
+    _load_theme(style)
 
-    @classmethod
-    def load_theme(cls, root: tkinter.Tk | None) -> None:
-        if cls.initialized:
-            return
-
-        theme_file = (Path(__file__).parent / "sv.tcl").absolute()
-
-        if root is None:
-            cls.tcl = _get_default_root()
-        else:
-            cls.tcl = root
-
-        cls.tcl.call("source", str(theme_file))
-        cls.initialized = True
-
-    @classmethod
-    def get_theme(cls, root: tkinter.Tk | None = None) -> str:
-        cls.load_theme(root)
-
-        theme = cls.tcl.call("ttk::style", "theme", "use")
-        return {"sun-valley-dark": "dark", "sun-valley-light": "light"}.get(
-            theme, theme
-        )
-
-    @classmethod
-    def set_theme(cls, theme: str, root: tkinter.Tk | None = None) -> None:
-        cls.load_theme(root)
-        if theme.lower() not in {"dark", "light"}: # Maybe someone will write Dark
-            raise RuntimeError("not a valid sv_ttk theme name: {}".format(theme))
-
-        cls.tcl.call("ttk::style", "theme", "use", f"sun-valley-{theme.lower()}")
-
-    @classmethod
-    def toggle_theme(cls, root: tkinter.Tk | None = None) -> None:
-        cls.load_theme(root)
-        cls.set_theme("dark" if cls.get_theme() == "light" else "light")
+    theme = style.theme_use()
+    print("theme", style.theme_use())
+    return {"sun-valley-dark": "dark", "sun-valley-light": "light"}.get(theme, theme)
 
 
-set_theme = SunValleyTtkTheme.set_theme
-get_theme = SunValleyTtkTheme.get_theme
+def set_theme(theme: str, root: tkinter.Tk | None = None) -> None:
+    style = ttk.Style(master=root)
+    print(id(style.master))
+    _load_theme(style)
+
+    theme = theme.lower()
+
+    if theme not in {"dark", "light"}:
+        raise RuntimeError(f"not a valid sv_ttk theme: {theme}")
+
+    print(theme)
+    style.theme_use(f"sun-valley-{theme}")
+    print("most:", style.theme_use())
+
+
+def toggle_theme(root: tkinter.Tk | None = None) -> None:
+    style = ttk.Style(master=root)
+    _load_theme(style)
+
+    set_theme("light" if style.theme_use() == "sun-valley-dark" else "dark")
+
+
 use_dark_theme = partial(set_theme, "dark")
 use_light_theme = partial(set_theme, "light")
-toggle_theme = SunValleyTtkTheme.toggle_theme
