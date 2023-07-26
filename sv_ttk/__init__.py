@@ -4,14 +4,15 @@ import sys
 import tkinter
 from functools import partial
 from pathlib import Path
+from typing import ClassVar
 
 
-def _get_default_root() -> tkinter.Misc:
+def _get_default_root() -> tkinter.Tk:
     try:
-        return tkinter._get_default_root()
+        return tkinter._get_default_root()  # type: ignore
     except AttributeError:
         try:
-            return tkinter._default_root
+            return tkinter._default_root  # type: ignore
         except AttributeError:
             raise RuntimeError(
                 "can't set theme, because tkinter is configured to not support implicit default root,"
@@ -26,9 +27,10 @@ def _get_default_root() -> tkinter.Misc:
 
 class SunValleyTtkTheme:
     initialized = False
+    tcl: ClassVar[tkinter.Tk]
 
     @classmethod
-    def load_theme(cls, root: tkinter.Misc | None) -> None:
+    def load_theme(cls, root: tkinter.Tk | None) -> None:
         if cls.initialized:
             return
 
@@ -43,7 +45,7 @@ class SunValleyTtkTheme:
         cls.initialized = True
 
     @classmethod
-    def get_theme(cls, root: tkinter.Misc | None = None) -> str:
+    def get_theme(cls, root: tkinter.Tk | None = None) -> str:
         cls.load_theme(root)
 
         theme = cls.tcl.call("ttk::style", "theme", "use")
@@ -52,7 +54,7 @@ class SunValleyTtkTheme:
         )
 
     @classmethod
-    def set_theme(cls, theme: str, root: tkinter.Misc | None = None) -> None:
+    def set_theme(cls, theme: str, root: tkinter.Tk | None = None) -> None:
         cls.load_theme(root)
         if theme not in {"dark", "light"}:
             raise RuntimeError("not a valid sv_ttk theme name: {}".format(theme))
@@ -60,7 +62,7 @@ class SunValleyTtkTheme:
         cls.tcl.call("set_theme", theme)
 
     @classmethod
-    def toggle_theme(cls, root: tkinter.Misc | None = None) -> None:
+    def toggle_theme(cls, root: tkinter.Tk | None = None) -> None:
         cls.load_theme(root)
         if cls.get_theme() == "light":
             cls.set_theme("dark")
