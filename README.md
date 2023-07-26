@@ -8,7 +8,7 @@ Make your Tkinter application look better than ever with just two lines of code!
 </div>
 
 
-## Installation [![PyPi downloads badge](https://static.pepy.tech/badge/sv-ttk)](https://pypi.org/project/sv-ttk)
+## Installation [![PyPi downloads](https://static.pepy.tech/badge/sv-ttk)](https://pypi.org/project/sv-ttk)
 The theme is easily installable as a Python package
 
 ```
