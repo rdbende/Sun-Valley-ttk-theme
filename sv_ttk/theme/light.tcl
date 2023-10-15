@@ -1,5 +1,8 @@
 source [file join [file dirname [info script]] sprites_light.tcl]
 
+# Text
+option add *Text.highlightThickness 0
+
 namespace eval ttk::theme::sv_light {
   package provide ttk::theme::sv_light 2.5
 
@@ -434,9 +437,6 @@ namespace eval ttk::theme::sv_light {
         selected $I(tab-selected) \
         active $I(tab-hover) \
       ] -border 13 -padding {16 14 16 6} -height 32
-
-    # Text
-    option add *Text.highlightThickness 0
 
     # Treeview
     ttk::style configure Heading -font SunValleyCaptionFont

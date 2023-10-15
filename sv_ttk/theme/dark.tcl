@@ -1,5 +1,8 @@
 source [file join [file dirname [info script]] sprites_dark.tcl]
 
+# Text
+option add *Text.highlightThickness 0
+
 namespace eval ttk::theme::sv_dark {
   package provide ttk::theme::sv_dark 2.5
 
@@ -430,9 +433,6 @@ namespace eval ttk::theme::sv_dark {
         active $I(tab-hover) \
       ] -border 13 -padding {16 14 16 6} -height 32
 
-    # Text
-    option add *Text.highlightThickness 0
-
     # Treeview
     ttk::style configure Heading -font SunValleyCaptionFont
     ttk::style configure Treeview \
@@ -443,18 +443,19 @@ namespace eval ttk::theme::sv_dark {
     ttk::style map Treeview -background {selected "#292929"} -foreground {selected $colors(-selfg)}
 
     ttk::style element create Treeview.field image $I(card) -border 5 -width 0 -height 0
-    
+
     ttk::style element create Treeheading.cell image \
       [list $I(heading-rest) \
         pressed $I(heading-pressed) \
         active $I(heading-hover)
       ] -border 5 -padding 14 -sticky nsew
-    
+
     ttk::style element create Treeitem.indicator image \
       [list $I(right) \
         user2 $I(empty) \
         user1 $I(down) \
       ] -width 26 -sticky {}
+
     # Panedwindow
     ttk::style configure Sash \
       -lightcolor "#9e9e9e" \
