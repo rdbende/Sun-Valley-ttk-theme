@@ -32,7 +32,7 @@ proc config_entry_font {w} {
 
 
 proc config_menus {w} {
-  if {[tk windowingsystem] == "aqua"} {
+  if {[tk windowingsystem] == "aqua" || [tk windowingsystem] == "win32"} {
     return
   }
 
