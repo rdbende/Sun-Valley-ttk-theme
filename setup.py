@@ -27,12 +27,11 @@ setup(
     long_description_content_type="text/markdown",
     packages=["sv_ttk"],
     package_data={"sv_ttk": ["sv.tcl", "theme/*", "py.typed"]},
-    python_requires=">=3.7",
+    python_requires=">=3.8",
     classifiers=[
         "Intended Audience :: Developers",
         "Topic :: Software Development :: User Interfaces",
         "Programming Language :: Python :: 3 :: Only",
-        "Programming Language :: Python :: 3.7",
         "Programming Language :: Python :: 3.8",
         "Programming Language :: Python :: 3.9",
         "Programming Language :: Python :: 3.10",
