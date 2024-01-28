@@ -1,9 +1,14 @@
-<picture>
-  <source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/rdbende/Sun-Valley-ttk-theme/master/assets/hero_dark.png">
-  <img alt="Cover image" src="https://raw.githubusercontent.com/rdbende/Sun-Valley-ttk-theme/master/assets/hero_light.png">
-</picture>
+<div align="center">
+  
+# Sun Valley ttk theme
+Make your Tkinter application look better than ever with just two lines of code!
 
-## Installation [![image](https://static.pepy.tech/badge/sv-ttk)](https://pypi.org/project/sv-ttk)
+![Screenshot of Sun Valley ttk theme](assets/screenshot.png)
+
+</div>
+
+
+## Installation [![PyPi downloads](https://static.pepy.tech/badge/sv-ttk)](https://pypi.org/project/sv-ttk)
 The theme is easily installable as a Python package
 
 ```
@@ -11,12 +16,12 @@ pip install sv-ttk
 ```
 
 
-### Usage
-❕**Note:**
-_The theme will only work with themable (`tkinter.ttk`) widgets, and not with plain Tkinter widgets, these will only get the colorscheme.
-Please don't open issues about the theme not working with plain Tkinter widgets._
+## Usage [![Documentation](https://img.shields.io/badge/-documentation-%23c368c4)](https://github.com/rdbende/Sun-Valley-ttk-theme/wiki/Usage-with-Python)
+> **Note:**
+> 
+> The theme will only be applied to themable (`tkinter.ttk`) widgets, and not with the regular Tkinter widgets, they only benefit from the colorscheme.
 
-For detailed documentation, see the [wiki page](https://github.com/rdbende/Sun-Valley-ttk-theme/wiki/Usage-with-Python)
+For detailed documentation, visit the [wiki page](https://github.com/rdbende/Sun-Valley-ttk-theme/wiki/Usage-with-Python).
 
 ```python
 import tkinter
@@ -36,10 +41,7 @@ root.mainloop()
 ```
 
 
-## Known bugs and limitations
-- Tkinter (Tk) isn't really good at displaying `png` images, so the window can be quite laggy when resizing, especially on Windows.
-
-## What's next?
+## Wanna see more?
 Check out my other ttk themes!
-- [Azure ttk theme](https://github.com/rdbende/Azure-ttk-theme)
-- [Forest ttk theme](https://github.com/rdbende/Forest-ttk-theme)
+- The [Azure ttk theme](https://github.com/rdbende/Azure-ttk-theme)
+- The [Forest ttk theme](https://github.com/rdbende/Forest-ttk-theme)
