@@ -4,6 +4,8 @@ import tkinter
 from functools import partial
 from pathlib import Path
 from tkinter import ttk
+import ctypes as ct
+import darkdetect
 
 TCL_THEME_FILE_PATH = Path(__file__).with_name("sv.tcl").absolute()
 
@@ -42,7 +44,44 @@ def toggle_theme(root: tkinter.Tk | None = None) -> None:
     _load_theme(style)
 
     set_theme("light" if style.theme_use() == "sun-valley-dark" else "dark")
-
+def titlebar(root: tkinter.tk,theme: "light"):
+    def dark_title_bar(window):
+    window.update()
+    DWMWA_USE_IMMERSIVE_DARK_MODE = 20
+    set_window_attribute = ct.windll.dwmapi.DwmSetWindowAttribute
+    get_parent = ct.windll.user32.GetParent
+    hwnd = get_parent(window.winfo_id())
+    rendering_policy = DWMWA_USE_IMMERSIVE_DARK_MODE
+    value = 2
+    value = ct.c_int(value)
+    set_window_attribute(hwnd, rendering_policy, ct.byref(value), ct.sizeof(value))
+def light_title_bar(window):
+    window.update()
+    DWMWA_USE_IMMERSIVE_DARK_MODE = 20
+    set_window_attribute = ct.windll.dwmapi.DwmSetWindowAttribute
+    get_parent = ct.windll.user32.GetParent
+    hwnd = get_parent(window.winfo_id())
+    rendering_policy = DWMWA_USE_IMMERSIVE_DARK_MODE
+    value = 0
+    value = ct.c_int(value)
+    set_window_attribute(hwnd, rendering_policy, ct.byref(value), ct.sizeof(value))
+if theme not in {"dark", "light"}:
+        raise RuntimeError(f"not a valid sv_ttk theme: {theme}")
+else:
+    if theme == "light":
+        light_title_bar(root)
+    elif theme == "dark":
+        dark_title_bar(root)
+def native_theme(root:tkinter.tk):
+    set_theme("light",root)
+    is_dark = darkdetect.is_dark()
+    if is_dark:
+        titlebar(root,"dark")
+        toggle_theme()
+    else:
+        titlebar(root,"light")
 
 use_dark_theme = partial(set_theme, "dark")
 use_light_theme = partial(set_theme, "light")
+
+    
