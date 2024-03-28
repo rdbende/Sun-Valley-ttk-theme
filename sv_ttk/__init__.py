@@ -76,7 +76,7 @@ def titlebar(root: tkinter.tk,theme):
             dark_title_bar(root)
 def native_theme(root:tkinter.tk):
     set_theme("light",root)
-    is_dark = darkdetect.is_dark()
+    is_dark = darkdetect.isDark()
     if is_dark:
         titlebar(root,"dark")
         toggle_theme()
