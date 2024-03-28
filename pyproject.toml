@@ -15,8 +15,7 @@ authors = [
 ]  # List of authors
 
 # Optional metadata fields
-description = "Your package description goes here"
-readme = "README.rst"  # Path to a longer description file (e.g., README.rst)
+readme = "README.md"  # Path to a longer description file (e.g., README.rst)
 classifiers = [
     "License :: OSI Approved :: MIT License",
     # Add other classifiers as needed
