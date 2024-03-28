@@ -15,7 +15,7 @@ authors = [
 ]  # List of authors
 
 # Optional metadata fields
-discription = "Even more windows 11-like! With custom titlebars, Making themed apps is now so easy!"
+description = "Even more windows 11-like! With custom titlebars, Making themed apps is now so easy!"
 readme = "README.md"  # Path to a longer description file (e.g., README.rst)
 classifiers = [
     "License :: OSI Approved :: MIT License",
