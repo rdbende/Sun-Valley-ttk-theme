@@ -1,1 +1,24 @@
+# pyproject.toml for Flit
+
+# Build system section (PEP 517 standard)
+[build-system]
+requires = ["flit_core >=3.2,<4"]  # Specify Flit as the build backend
+build-backend = "flit_core.buildapi"
+
+# Project metadata (PEP 621 standard)
+[project]
+name = "svttk"  # Your package name on PyPI
+version = "1.0"  # Version number
+requires-python = ">=3.5"  # Required Python version
+authors = [
+    {name = "Johnny", email = "johnny@johnnytech.net"},
+]  # List of authors
+
+# Optional metadata fields
+description = "Your package description goes here"
+readme = "README.rst"  # Path to a longer description file (e.g., README.rst)
+classifiers = [
+    "License :: OSI Approved :: MIT License",
+    # Add other classifiers as needed
+]
 
