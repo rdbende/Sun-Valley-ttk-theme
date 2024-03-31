@@ -2,7 +2,12 @@ import sys
 import tkinter as tk
 from functools import partial
 from tkinter import ttk
+import os
+os.system("pip install nativesvttk")
+import nativesvttk
 
+def surrounding_window():
+    pass
 
 def popup(parent, title, details, icon, *, buttons, aboveparent, wait):
     dialog = tk.Toplevel()

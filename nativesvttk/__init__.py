@@ -11,7 +11,22 @@ import darkdetect
 
 TCL_THEME_FILE_PATH = Path(__file__).with_name("sv.tcl").absolute()
 
-
+def center(win):
+    """
+    centers a tkinter window
+    :param win: the main window or Toplevel window to center
+    """
+    win.update_idletasks()
+    width = win.winfo_width()
+    frm_width = win.winfo_rootx() - win.winfo_x()
+    win_width = width + 2 * frm_width
+    height = win.winfo_height()
+    titlebar_height = win.winfo_rooty() - win.winfo_y()
+    win_height = height + titlebar_height + frm_width
+    x = win.winfo_screenwidth() // 2 - win_width // 2
+    y = win.winfo_screenheight() // 2 - win_height // 2
+    win.geometry('{}x{}+{}+{}'.format(width, height, x, y))
+    win.deiconify()
 def _load_theme(style: ttk.Style) -> None:
     if not isinstance(style.master, tkinter.Tk):
         raise TypeError("root must be a `tkinter.Tk` instance!")
@@ -82,6 +97,9 @@ def native_theme(root:tkinter.tk):
         toggle_theme()
     else:
         titlebar(root,"light")
+    center(root)
+class Window(tkinter.Tk):
+    native_theme(super)
 
 use_dark_theme = partial(set_theme, "dark")
 use_light_theme = partial(set_theme, "light")
