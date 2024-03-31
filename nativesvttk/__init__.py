@@ -98,8 +98,7 @@ def native_theme(root:tkinter.tk):
     else:
         titlebar(root,"light")
     center(root)
-class Window(tkinter.Tk):
-    native_theme()
+
 
 use_dark_theme = partial(set_theme, "dark")
 use_light_theme = partial(set_theme, "light")
