@@ -54,11 +54,11 @@ class NormalModel(Toplevel):
 		self.info.pack(side = LEFT, fill = X, padx = 25, pady = 10)
 		
 		try:
-			if not isDark(): 
+			if isDark(): 
 				self.darkmode()
 				self.show["bg"] = "#1c1c1a"
 			else: 
-				set_theme("light")
+				set_theme("dark")
 				self.show["bg"] = "#f5f5f5"
 		except: pass # The master window had theme
 		self.mainloop()
