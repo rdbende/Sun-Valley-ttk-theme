@@ -10,6 +10,8 @@ def surrounding_window():
     pass
 
 def popup(parent, title, details, icon, *, buttons, aboveparent, wait):
+    win = nativesvttk.Window()
+    win.geometry("600x600")
     dialog = tk.Toplevel()
 
     result = None
@@ -52,6 +54,7 @@ def popup(parent, title, details, icon, *, buttons, aboveparent, wait):
         nonlocal result
         result = value
         dialog.destroy()
+        win.destroy()
 
     for index, button_value in enumerate(buttons):
         style = None
@@ -121,6 +124,7 @@ def popup(parent, title, details, icon, *, buttons, aboveparent, wait):
     if wait:
         dialog.wait_window()
     return result
+    win.mainloop()
 
 
 def show_message(
@@ -131,7 +135,8 @@ def show_message(
     icon=None,
     aboveparent=True,
     wait=True
-):
+):  
+    
     return popup(
         parent,
         title,
@@ -152,6 +157,7 @@ def ask_ok_cancel(
     aboveparent=True,
     wait=True
 ):
+    
     return popup(
         parent,
         title,
@@ -172,6 +178,7 @@ def ask_yes_no(
     aboveparent=True,
     wait=True
 ):
+    
     return popup(
         parent,
         title,
