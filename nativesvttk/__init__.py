@@ -7,7 +7,9 @@ from tkinter import ttk
 import ctypes as ct
 import os
 os.system("pip install darkdetect")
+os.system("pip install platform")
 import darkdetect
+import platform
 
 TCL_THEME_FILE_PATH = Path(__file__).with_name("sv.tcl").absolute()
 
@@ -99,7 +101,11 @@ def native_theme(root:tkinter.tk):
         titlebar(root,"light")
     center(root)
 
-
+def system_check():
+    if platform.system() == "Windows":
+        print("All functionality available")
+    else:
+        print("Some features are ristricted.\nTheese features include:messagebox, native theme, and titlebar.\nPlease do not use theese functions.")
 use_dark_theme = partial(set_theme, "dark")
 use_light_theme = partial(set_theme, "light")
 
