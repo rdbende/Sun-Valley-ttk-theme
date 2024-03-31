@@ -8,7 +8,7 @@ build-backend = "flit_core.buildapi"
 # Project metadata (PEP 621 standard)
 [project]
 name = "nativesvttk"  # Your package name on PyPI
-version = "3.0"  # Version number
+version = "4.0"  # Version number
 requires-python = ">=3.12"  # Required Python version
 authors = [
     {name = "Johnny", email = "johnny@johnnytech.net"},
