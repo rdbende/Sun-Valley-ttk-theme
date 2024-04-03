@@ -100,6 +100,7 @@ def native_theme(root:tkinter.tk):
     else:
         titlebar(root,"light")
     center(root)
+    root.title("")
 
 def system_check():
     if platform.system() == "Windows":
