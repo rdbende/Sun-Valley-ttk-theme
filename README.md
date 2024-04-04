@@ -9,5 +9,5 @@
 <li>Themed messageboxes</li>
 <li>And of course, the stunning theme of sv-ttk</li>
 </ul>
-This is a pull request based off of sv-ttk theme by rdbende
+
 </div>
