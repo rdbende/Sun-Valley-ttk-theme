@@ -5,9 +5,6 @@ from functools import partial
 from pathlib import Path
 from tkinter import ttk
 import ctypes as ct
-import os
-os.system("pip install darkdetect")
-os.system("pip install platform")
 import darkdetect
 import platform
 

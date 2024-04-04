@@ -1,5 +1,4 @@
-import os
-os.system("pip install CTkMessagebox")
+
 from CTkMessagebox import CTkMessagebox
 
 class CTKMESSAGEBOX:
