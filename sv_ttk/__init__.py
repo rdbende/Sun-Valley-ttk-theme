@@ -4,6 +4,7 @@ import tkinter
 from functools import partial
 from pathlib import Path
 from tkinter import ttk
+import platform, sys, pywinstyles
 
 TCL_THEME_FILE_PATH = Path(__file__).with_name("sv.tcl").absolute()
 
@@ -34,8 +35,15 @@ def set_theme(theme: str, root: tkinter.Tk | None = None) -> None:
     if theme not in {"dark", "light"}:
         raise RuntimeError(f"not a valid sv_ttk theme: {theme}")
 
-    style.theme_use(f"sun-valley-{theme}")
+    # Set the title bar color on Windows
+    if get_windows_version() == 10:
+        if theme == "dark": pywinstyles.apply_style(root, "dark")
+        else: pywinstyles.apply_style(root, "normal")
+    elif get_windows_version() == 11:
+        if theme == "dark": pywinstyles.change_header_color(root, "#1c1c1c")
+        elif theme == "light": pywinstyles.change_header_color(root, "#fafafa")
 
+    style.theme_use(f"sun-valley-{theme}")
 
 def toggle_theme(root: tkinter.Tk | None = None) -> None:
     style = ttk.Style(master=root)
@@ -43,6 +51,24 @@ def toggle_theme(root: tkinter.Tk | None = None) -> None:
 
     set_theme("light" if style.theme_use() == "sun-valley-dark" else "dark")
 
+
+def get_windows_version() -> int:
+    if platform.system() == "Windows":
+        # Running on Windows
+        version = sys.getwindowsversion()
+
+        if version.major == 10 and version.build >= 22000:
+            # Windows 11
+            return 11
+        elif version.major == 10:
+            # Windows 10
+            return 10
+        else:
+            # Other Windows version (like 7, 8, 8.1, etc...)
+            return version.major
+    else:
+        # Not running on Windows
+        return 0
 
 use_dark_theme = partial(set_theme, "dark")
 use_light_theme = partial(set_theme, "light")
