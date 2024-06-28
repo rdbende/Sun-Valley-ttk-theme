@@ -37,11 +37,17 @@ def set_theme(theme: str, root: tkinter.Tk | None = None) -> None:
 
     # Set the title bar color on Windows
     if get_windows_version() == 10:
-        if theme == "dark": pywinstyles.apply_style(root, "dark")
-        else: pywinstyles.apply_style(root, "normal")
+        if theme == "dark": pywinstyles.apply_style(style.master, "dark")
+        else: pywinstyles.apply_style(style.master, "normal")
+
+        # A hacky way to update the title bar's color on Windows 10 (it doesn't update instantly like on Windows 11)
+        style.master.wm_attributes("-alpha", 0)
+        style.master.iconify()
+        style.master.deiconify()
+        style.master.wm_attributes("-alpha", 1)
     elif get_windows_version() == 11:
-        if theme == "dark": pywinstyles.change_header_color(root, "#1c1c1c")
-        elif theme == "light": pywinstyles.change_header_color(root, "#fafafa")
+        if theme == "dark": pywinstyles.change_header_color(style.master, "#1c1c1c")
+        elif theme == "light": pywinstyles.change_header_color(style.master, "#fafafa")
 
     style.theme_use(f"sun-valley-{theme}")
 
@@ -50,7 +56,6 @@ def toggle_theme(root: tkinter.Tk | None = None) -> None:
     _load_theme(style)
 
     set_theme("light" if style.theme_use() == "sun-valley-dark" else "dark")
-
 
 def get_windows_version() -> int:
     if platform.system() == "Windows":
