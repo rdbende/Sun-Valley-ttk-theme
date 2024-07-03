@@ -4,7 +4,7 @@ import tkinter
 from functools import partial
 from pathlib import Path
 from tkinter import ttk
-import sys, pywinstyles
+import sys
 
 TCL_THEME_FILE_PATH = Path(__file__).with_name("sv.tcl").absolute()
 
@@ -38,6 +38,8 @@ def set_theme(theme: str, root: tkinter.Tk | None = None) -> None:
     # Set title bar color on Windows
     def set_title_bar_color(root):
         if get_windows_version() == 10:
+            import pywinstyles
+            
             if theme == "dark": pywinstyles.apply_style(root, "dark")
             else: pywinstyles.apply_style(root, "normal")
 
@@ -49,6 +51,8 @@ def set_theme(theme: str, root: tkinter.Tk | None = None) -> None:
                 root.state("normal")
                 root.state("zoomed")
         elif get_windows_version() == 11:
+            import pywinstyles
+            
             if theme == "dark": pywinstyles.change_header_color(root, "#1c1c1c")
             elif theme == "light": pywinstyles.change_header_color(root, "#fafafa")
 
