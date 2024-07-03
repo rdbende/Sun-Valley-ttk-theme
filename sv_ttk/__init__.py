@@ -35,21 +35,28 @@ def set_theme(theme: str, root: tkinter.Tk | None = None) -> None:
     if theme not in {"dark", "light"}:
         raise RuntimeError(f"not a valid sv_ttk theme: {theme}")
 
-    # Set the title bar color on Windows
-    if get_windows_version() == 10:
-        if theme == "dark": pywinstyles.apply_style(style.master, "dark")
-        else: pywinstyles.apply_style(style.master, "normal")
+    # Set title bar color on Windows
+    def set_title_bar_color(root):
+        if get_windows_version() == 10:
+            if theme == "dark": pywinstyles.apply_style(root, "dark")
+            else: pywinstyles.apply_style(root, "normal")
 
-        # A hacky way to update the title bar's color on Windows 10 (it doesn't update instantly like on Windows 11)
-        if style.master.state() == "normal":
-            style.master.state("zoomed")
-            style.master.state("normal")
-        elif style.master.state() == "zoomed":
-            style.master.state("normal")
-            style.master.state("zoomed")
-    elif get_windows_version() == 11:
-        if theme == "dark": pywinstyles.change_header_color(style.master, "#1c1c1c")
-        elif theme == "light": pywinstyles.change_header_color(style.master, "#fafafa")
+            # A hacky way to update the title bar's color on Windows 10 (it doesn't update instantly like on Windows 11)
+            if root.state() == "normal":
+                root.state("zoomed")
+                root.state("normal")
+            elif root.state() == "zoomed":
+                root.state("normal")
+                root.state("zoomed")
+        elif get_windows_version() == 11:
+            if theme == "dark": pywinstyles.change_header_color(root, "#1c1c1c")
+            elif theme == "light": pywinstyles.change_header_color(root, "#fafafa")
+
+    set_title_bar_color(style.master)
+
+    # Set the title bar color of Toplevels too
+    for widget in style.master.winfo_children():
+        if isinstance(widget, tkinter.Toplevel): set_title_bar_color(widget)
 
     style.theme_use(f"sun-valley-{theme}")
 
