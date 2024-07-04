@@ -9,6 +9,17 @@ import sys
 TCL_THEME_FILE_PATH = Path(__file__).with_name("sv.tcl").absolute()
 
 
+# A hacky way to change a Toplevel's title bar color after it's created
+class ThemedToplevel(tkinter.Toplevel):
+    def __init__(self, master=None, *args, **kwargs):
+        super().__init__(master, *args, **kwargs)
+
+        try: set_theme(get_theme())
+        except: pass
+
+tkinter.Toplevel = ThemedToplevel
+
+
 def _load_theme(style: ttk.Style) -> None:
     if not isinstance(style.master, tkinter.Tk):
         raise TypeError("root must be a `tkinter.Tk` instance!")
@@ -39,28 +50,25 @@ def set_theme(theme: str, root: tkinter.Tk | None = None) -> None:
     def set_title_bar_color(root):
         if get_windows_version() == 10:
             import pywinstyles
-            
+
             if theme == "dark": pywinstyles.apply_style(root, "dark")
             else: pywinstyles.apply_style(root, "normal")
 
             # A hacky way to update the title bar's color on Windows 10 (it doesn't update instantly like on Windows 11)
-            if root.state() == "normal":
-                root.state("zoomed")
-                root.state("normal")
-            elif root.state() == "zoomed":
-                root.state("normal")
-                root.state("zoomed")
+            root.wm_attributes("-alpha", 0.99)
+            root.wm_attributes("-alpha", 1)
         elif get_windows_version() == 11:
             import pywinstyles
             
             if theme == "dark": pywinstyles.change_header_color(root, "#1c1c1c")
             elif theme == "light": pywinstyles.change_header_color(root, "#fafafa")
 
-    set_title_bar_color(style.master)
+    def set_title_bar_color_toplevels():
+        for widget in style.master.winfo_children():
+            if isinstance(widget, tkinter.Toplevel): set_title_bar_color(widget)
 
-    # Set the title bar color of Toplevels too
-    for widget in style.master.winfo_children():
-        if isinstance(widget, tkinter.Toplevel): set_title_bar_color(widget)
+    set_title_bar_color(style.master)
+    set_title_bar_color_toplevels()
 
     style.theme_use(f"sun-valley-{theme}")
 
