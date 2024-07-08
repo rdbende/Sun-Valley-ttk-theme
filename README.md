@@ -136,6 +136,7 @@ Here's how the windows look after calling ```set_title_bar_color()```:
   <summary>See screenshots</summary>
   
   <br>
+
   **Windows 10**
   <p align="center">
     <img src="assets/win10.png"/>
