@@ -41,7 +41,7 @@ root.mainloop()
 ```
 
 ## Tips and tricks
-Sun Valley is meant to be a simple ttk theme wrapped in a PyPI package for convenience. I don't want to add other dependencies, nor features that would be trivial to implement if the user wants them, using 3rd party packages. But this theme can be easily integrated with other 3rd party modules.
+Sun Valley is meant to be a simple ttk theme wrapped in a PyPI package for convenience. I don't want to add other dependencies, nor features that would be trivial to implement if the user wants them, using 3rd party modules. But this theme can be easily integrated with them.
 
 ### Set the theme to the system theme
 You can use [darkdetect](https://github.com/albertosottile/darkdetect) for that. Here's an example:
