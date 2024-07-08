@@ -90,7 +90,8 @@ By default, sv_ttk doesn't change the title bar color on Windows when the theme 
           root.wm_attributes("-alpha", 1)
       elif get_windows_version() == 11:
           import pywinstyles
-            
+
+          # Set the title bar color to the background color on Windows 11 for better appearance
           if theme == "dark": pywinstyles.change_header_color(root, "#1c1c1c")
           elif theme == "light": pywinstyles.change_header_color(root, "#fafafa")
 
@@ -126,27 +127,6 @@ By default, sv_ttk doesn't change the title bar color on Windows when the theme 
   set_title_bar_color(root)
   root.mainloop()
 ```
-</details>
-
-The ```set_title_bar_color()``` function can be made even shorter, like this:
-
-<details>
-  <summary>Show code</summary>
-
-  ```python
-  def set_title_bar_color(root: tkinter.Tk | tkinter.Toplevel):
-      theme = sv_ttk.get_theme()
-
-      if get_windows_version() >= 10:
-          import pywinstyles
-
-          if theme == "dark": pywinstyles.apply_style(root, "dark")
-          else: pywinstyles.apply_style(root, "normal")
-
-          if not get_windows_version() == 11:
-            root.wm_attributes("-alpha", 0.99)
-            root.wm_attributes("-alpha", 1)
-  ```
 </details>
 
 Note that on Windows 10, due to its limitations, you can only set the title bar's color to black for dark mode and white for light mode.
