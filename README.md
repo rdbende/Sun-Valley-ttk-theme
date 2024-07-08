@@ -136,7 +136,7 @@ Sun Valley is meant to be a simple ttk theme wrapped in a PyPI package for conve
     <b>Windows 10</b>
     <br>
     <img src="assets/win10.png"/>
-    <br>
+    <br><br>
     <b>Windows 11</b>
     <br>
     <img src="assets/win11.png"/>
