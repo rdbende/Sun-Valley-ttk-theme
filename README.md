@@ -132,13 +132,13 @@ Sun Valley is meant to be a simple ttk theme wrapped in a PyPI package for conve
 
   Here's how the windows look after calling ```set_title_bar_color()```:
 
-  **Windows 10**
   <p align="center">
+    <b>Windows 10</b>
+    <br>
     <img src="assets/win10.png"/>
-  </p>
-
-  **Windows 11**
-  <p align="center">
+    <br>
+    <b>Windows 11</b>
+    <br>
     <img src="assets/win11.png"/>
   </p>
 </details>
