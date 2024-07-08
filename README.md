@@ -63,7 +63,7 @@ You can use [darkdetect](https://github.com/albertosottile/darkdetect) for that.
   ```
 </details>
 
-You have just to pass ```darkdetect.theme()``` to ```sv_ttk.set_theme()``` function. It's that easy!
+You have just to pass ```darkdetect.theme()``` to the ```sv_ttk.set_theme()``` function. It's that easy!
 
 ### Dark Mode title bar on Windows
 By default, sv_ttk doesn't change the title bar color on Windows when the theme is set to dark. But you can use [pywinstyles](https://github.com/Akascape/py-window-styles) to change the title bar color on Windows. Here's an example:
