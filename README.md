@@ -40,6 +40,7 @@ sv_ttk.set_theme("dark")
 root.mainloop()
 ```
 
+
 ## Tips and tricks
 Sun Valley is meant to be a simple ttk theme wrapped in a PyPI package for convenience. I don't want to add other dependencies, nor features that would be trivial to implement if the user wants them, using 3rd party modules. But this theme can be easily integrated with them.
 
@@ -61,7 +62,7 @@ Sun Valley is meant to be a simple ttk theme wrapped in a PyPI package for conve
   root.mainloop()
   ```
 
-  You have just to pass ```darkdetect.theme()``` to the ```sv_ttk.set_theme()``` function. It's that easy!
+  You just have to pass ```darkdetect.theme()``` to the ```sv_ttk.set_theme()``` function. It's that easy!
 </details>
 
 
