@@ -131,6 +131,18 @@ By default, sv_ttk doesn't change the title bar color on Windows when the theme 
 
 Note that on Windows 10, due to its limitations, you can only set the title bar's color to black for dark mode and white for light mode. On Windows 11 the title bar can be set to any color.
 
+Here's how the windows look after calling ```set_title_bar_color()```:
+
+Windows 10
+<p align="center">
+  <img src="assets/win10.png"/>
+</p>
+
+Windows 11
+<p align="center">
+  <img src="assets/win11.png"/>
+</p>
+
 ## Wanna see more?
 Check out my other ttk themes!
 - The [Azure ttk theme](https://github.com/rdbende/Azure-ttk-theme)
