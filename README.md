@@ -41,10 +41,10 @@ root.mainloop()
 ```
 
 ## Tips and tricks
-Sun Valley is meant to be a simple ttk theme that is wrapped in a PyPI package for convenience. I don't want to add other dependencies, nor features that would be trival to implement if the user wants it, using third party packages. But this theme can be easily integrated with other 3rd party modules.
+Sun Valley is meant to be a simple ttk theme wrapped in a PyPI package for convenience. I don't want to add other dependencies, nor features that would be trivial to implement if the user wants them, using 3rd party packages. But this theme can be easily integrated with other 3rd party modules.
 
-### Set the theme to system's theme
-You can use [darkdetect](https://github.com/albertosottile/darkdetect) for that. Here's how you can do this:
+### Set the theme to the system theme
+You can use [darkdetect](https://github.com/albertosottile/darkdetect) for that. Here's an example:
 
 <details>
   <summary>Show code</summary>
@@ -66,7 +66,7 @@ You can use [darkdetect](https://github.com/albertosottile/darkdetect) for that.
 You have just to pass ```darkdetect.theme()``` to ```sv_ttk.set_theme()``` function. It's that easy!
 
 ### Dark Mode title bar on Windows
-By default, sv_ttk doesn't change the title bar color on Windows when the theme is set to dark. But you can use [pywinstyles](https://github.com/Akascape/py-window-styles) to change the title bar color on Windows. Here's how you can do this:
+By default, sv_ttk doesn't change the title bar color on Windows when the theme is set to dark. But you can use [pywinstyles](https://github.com/Akascape/py-window-styles) to change the title bar color on Windows. Here's an example:
 
 <details>
   <summary>Show code</summary>
