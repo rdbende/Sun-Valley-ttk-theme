@@ -135,12 +135,12 @@ Here's how the windows look after calling ```set_title_bar_color()```:
 <details>
   <summary>See screenshots</summary>
   
-  Windows 10
+  **Windows 10**
   <p align="center">
     <img src="assets/win10.png"/>
   </p>
 
-  Windows 11
+  **Windows 11**
   <p align="center">
     <img src="assets/win11.png"/>
   </p>
