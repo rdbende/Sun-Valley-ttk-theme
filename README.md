@@ -40,6 +40,116 @@ sv_ttk.set_theme("dark")
 root.mainloop()
 ```
 
+## Tips and tricks
+Sun Valley is meant to be a simple ttk theme that is wrapped in a PyPI package for convenience. I don't want to add other dependencies, nor features that would be trival to implement if the user wants it, using third party packages. But this theme can be easily integrated with other 3rd party modules.
+
+### Set the theme to system's theme
+You can use [darkdetect](https://github.com/albertosottile/darkdetect) for that. Here's how you can do this:
+
+<details>
+  <summary>Show code</summary>
+  
+  ```python
+  import tkinter, sv_ttk, darkdetect
+  from tkinter import ttk
+
+  root = tkinter.Tk()
+
+  button = ttk.Button(root, text="Click me!")
+  button.pack()
+
+  sv_ttk.set_theme(darkdetect.theme())
+  root.mainloop()
+  ```
+</details>
+
+You have just to pass ```darkdetect.theme()``` to ```sv_ttk.set_theme()``` function. It's that easy!
+
+### Dark Mode title bar on Windows
+By default, sv_ttk doesn't change the title bar color on Windows when the theme is set to dark. But you can use [pywinstyles](https://github.com/Akascape/py-window-styles) to change the title bar color on Windows. Here's how you can do this:
+
+<details>
+  <summary>Show code</summary>
+  
+  ```python
+  import tkinter, sv_ttk
+  from tkinter import ttk
+
+  # Function to set the title bar color
+  def set_title_bar_color(root: tkinter.Tk | tkinter.Toplevel):
+      theme = sv_ttk.get_theme()
+
+      if get_windows_version() == 10:
+          import pywinstyles
+
+          if theme == "dark": pywinstyles.apply_style(root, "dark")
+          else: pywinstyles.apply_style(root, "normal")
+
+          # A hacky way to update the title bar's color on Windows 10 (it doesn't update instantly like on Windows 11)
+          root.wm_attributes("-alpha", 0.99)
+          root.wm_attributes("-alpha", 1)
+      elif get_windows_version() == 11:
+          import pywinstyles
+            
+          if theme == "dark": pywinstyles.change_header_color(root, "#1c1c1c")
+          elif theme == "light": pywinstyles.change_header_color(root, "#fafafa")
+
+
+  # Function to get Windows version			
+  def get_windows_version() -> int:
+      import sys
+
+      if sys.platform == "win32":
+         # Running on Windows
+          version = sys.getwindowsversion()
+
+          if version.major == 10 and version.build >= 22000:
+              # Windows 11
+              return 11
+          elif version.major == 10:
+              # Windows 10
+              return 10
+          else:
+              # Other Windows version (like 7, 8, 8.1, etc...)
+              return version.major
+      else:
+          # Not running on Windows
+          return 0
+        
+        
+  root = tkinter.Tk()
+
+  button = ttk.Button(root, text="Click me!")
+  button.pack()
+
+  sv_ttk.set_theme("dark")
+  set_title_bar_color(root)
+  root.mainloop()
+```
+</details>
+
+The ```set_title_bar_color()``` function can be made even shorter, like this:
+
+<details>
+  <summary>Show code</summary>
+
+  ```python
+  def set_title_bar_color(root: tkinter.Tk | tkinter.Toplevel):
+      theme = sv_ttk.get_theme()
+
+      if get_windows_version() >= 10:
+          import pywinstyles
+
+          if theme == "dark": pywinstyles.apply_style(root, "dark")
+          else: pywinstyles.apply_style(root, "normal")
+
+          if not get_windows_version() == 11:
+            root.wm_attributes("-alpha", 0.99)
+            root.wm_attributes("-alpha", 1)
+  ```
+</details>
+
+Note that on Windows 10, due to its limitations, you can only set the title bar's color to black for dark mode and white for light mode.
 
 ## Wanna see more?
 Check out my other ttk themes!
