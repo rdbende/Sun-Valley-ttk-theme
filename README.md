@@ -55,7 +55,7 @@ Sun Valley is meant to be a simple ttk theme wrapped in a PyPI package for conve
 
   root = tkinter.Tk()
 
-  button = ttk.Button(root, text="Click me!")
+  button = ttk.Button(root, text="Click me!", style="Accent.TButton")
   button.pack()
 
   sv_ttk.set_theme(darkdetect.theme())
@@ -120,7 +120,7 @@ Sun Valley is meant to be a simple ttk theme wrapped in a PyPI package for conve
         
   root = tkinter.Tk()
 
-  button = ttk.Button(root, text="Click me!")
+  button = ttk.Button(root, text="Click me!", style="Accent.TButton")
   button.pack()
 
   sv_ttk.set_theme("dark")
