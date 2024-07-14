@@ -104,19 +104,10 @@ Sun Valley is meant to be a simple ttk theme wrapped in a PyPI package for conve
          # Running on Windows
           version = sys.getwindowsversion()
 
-          if version.major == 10 and version.build >= 22000:
-              # Windows 11
-              return 11
-          elif version.major == 10:
-              # Windows 10
-              return 10
-          else:
-              # Other Windows version (like 7, 8, 8.1, etc...)
-              return version.major
-      else:
-          # Not running on Windows
-          return 0
-        
+          if version.major == 10 and version.build >= 22000: return 11 # Windows 11
+          elif version.major == 10: return 10 # Windows 10
+          else: return version.major # Other Windows version (like 7, 8, 8.1, etc...)
+      else: return 0 # Not running on Windows
         
   root = tkinter.Tk()
 
