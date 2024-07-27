@@ -50,16 +50,9 @@ Our intention is to keep the `sv-ttk` package as simple as possible, while makin
   You can use [darkdetect](https://github.com/albertosottile/darkdetect) for that. Here's an example:
   
   ```python
-  import tkinter, sv_ttk, darkdetect
-  from tkinter import ttk
-
-  root = tkinter.Tk()
-
-  button = ttk.Button(root, text="Click me!", style="Accent.TButton")
-  button.pack()
+  import darkdetect
 
   sv_ttk.set_theme(darkdetect.theme())
-  root.mainloop()
   ```
 
   You just have to pass ```darkdetect.theme()``` to the ```sv_ttk.set_theme()``` function. It's that easy!
