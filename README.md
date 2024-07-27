@@ -44,55 +44,52 @@ root.mainloop()
 ## Tips and tricks
 Our intention is to keep the `sv-ttk` package as simple as possible, while making it easy to integrate with other libraries.
 
-<details>
-  <summary><b>Set the theme to the system theme</b></summary>
-  
-  You can use [darkdetect](https://github.com/albertosottile/darkdetect) for that. Here's an example:
-  
-  ```python
-  import darkdetect
+### Set the theme to the system theme
+You can use the [darkdetect](https://github.com/albertosottile/darkdetect) package to detect the system color scheme. Here's an example:
 
-  sv_ttk.set_theme(darkdetect.theme())
-  ```
+```python
+import darkdetect
 
-  It's only a matter of an extra import and passing the result of `darkdetect.theme()` to ```sv_ttk.set_theme()`. It's that easy!
-</details>
-
-
-<details>
-  <summary><b>Dark Mode title bar on Windows</b></summary>
-
-  By default, sv_ttk doesn't change the title bar color on Windows when the theme is set to dark. But you can use [pywinstyles](https://github.com/Akascape/py-window-styles) to change the title bar color on Windows. Here's an example:
-  
-  ```python
-  import pywinstyles, sys
-
-  def apply_theme_to_titlebar(root):
-      version = sys.getwindowsversion()
-
-      if version.major == 10 and version.build >= 22000:
-          # Set the title bar color to the background color on Windows 11 for better appearance
-          if sv_ttk.get_theme() == "dark": pywinstyles.change_header_color(root, "#1c1c1c")
-          else: pywinstyles.change_header_color(root, "#fafafa")
-      elif version.major == 10:
-          if sv_ttk.get_theme() == "dark": pywinstyles.apply_style(root, "dark")
-          else: pywinstyles.apply_style(root, "normal")
-
-          # A hacky way to update the title bar's color on Windows 10 (it doesn't update instantly like on Windows 11)
-          root.wm_attributes("-alpha", 0.99)
-          root.wm_attributes("-alpha", 1)
-
-  # Example usage (replace `root` with the reference to your main/Toplevel window)
-  apply_theme_to_titlebar(root)
+sv_ttk.set_theme(darkdetect.theme())
 ```
 
-  Note that on Windows 10, due to its limitations, you can only set the title bar's color to black for dark mode and white for light mode. On Windows 11 the title bar can be set to any color.
+It's only a matter of an extra import and passing the result of `darkdetect.theme()` to `sv_ttk.set_theme()`. It's that easy!
 
-  > [!WARNING]
-  > The ```apply_theme_to_titlebar``` function is meant to be called only on Windows.
 
-  Here's how the windows look after calling ```set_title_bar_color()```:
+### Dark mode title bar on Windows
+The Sun Valley theme doesn't change the title bar color on Windows when the theme is set to dark. You can use [pywinstyles](https://github.com/Akascape/py-window-styles) to achieve this. Here's an example:
+  
+```python
+import pywinstyles, sys
 
+def apply_theme_to_titlebar(root):
+    version = sys.getwindowsversion()
+
+    if version.major == 10 and version.build >= 22000:
+        # Set the title bar color to the background color on Windows 11 for better appearance
+        pywinstyles.change_header_color(root, "#1c1c1c" if sv_ttk.get_theme() == "dark" else "#fafafa")
+    elif version.major == 10:
+        pywinstyles.apply_style(root, "dark" sv_ttk.get_theme() == "dark" else "normal")
+
+        # A hacky way to update the title bar's color on Windows 10 (it doesn't update instantly like on Windows 11)
+        root.wm_attributes("-alpha", 0.99)
+        root.wm_attributes("-alpha", 1)
+
+# Example usage (replace `root` with the reference to your main/Toplevel window)
+apply_theme_to_titlebar(root)
+```
+
+Note that on Windows 10, due to its limitations, you can only set the title bar's color to black for dark mode and white for light mode. On Windows 11 the title bar can be set to any color.
+
+
+> [!WARNING]
+> The `apply_theme_to_titlebar` works on Windows only, so you should check whether the platform is Windows before calling this function.
+
+
+Here's how the windows look after calling `set_title_bar_color()`:
+
+<details>
+  <summary>Screenshots</summary>
   <p align="center">
     <b>Windows 10</b>
     <br>
@@ -103,6 +100,7 @@ Our intention is to keep the `sv-ttk` package as simple as possible, while makin
     <img src="assets/win11.png"/>
   </p>
 </details>
+
 
 ## Wanna see more?
 Check out my other ttk themes!
