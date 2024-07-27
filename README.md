@@ -55,7 +55,7 @@ Our intention is to keep the `sv-ttk` package as simple as possible, while makin
   sv_ttk.set_theme(darkdetect.theme())
   ```
 
-  You just have to pass ```darkdetect.theme()``` to the ```sv_ttk.set_theme()``` function. It's that easy!
+  It's only a matter of an extra import and passing the result of `darkdetect.theme()` to ```sv_ttk.set_theme()`. It's that easy!
 </details>
 
 
