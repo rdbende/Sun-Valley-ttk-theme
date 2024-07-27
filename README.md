@@ -82,8 +82,8 @@ Our intention is to keep the `sv-ttk` package as simple as possible, while makin
           root.wm_attributes("-alpha", 0.99)
           root.wm_attributes("-alpha", 1)
 
-    # Example usage (replace `root` with the reference to your main/Toplevel window)
-    apply_theme_to_titlebar(root)
+  # Example usage (replace `root` with the reference to your main/Toplevel window)
+  apply_theme_to_titlebar(root)
 ```
 
   Note that on Windows 10, due to its limitations, you can only set the title bar's color to black for dark mode and white for light mode. On Windows 11 the title bar can be set to any color.
