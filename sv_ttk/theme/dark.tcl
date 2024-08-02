@@ -1,5 +1,8 @@
 source [file join [file dirname [info script]] sprites_dark.tcl]
 
+# Text
+option add *Text.highlightThickness 0
+
 namespace eval ttk::theme::sv_dark {
   package provide ttk::theme::sv_dark 2.5
 
@@ -24,7 +27,6 @@ namespace eval ttk::theme::sv_dark {
   load_images [file join [file dirname [info script]] spritesheet_dark.png]
 
   ttk::style theme create sun-valley-dark -parent clam -settings {
-        
     # Button
     ttk::style layout TButton {
       Button.button -children {
@@ -58,7 +60,7 @@ namespace eval ttk::theme::sv_dark {
     }
 
     ttk::style configure Toolbutton -padding {8 2 8 3} -anchor center
-    
+
     ttk::style element create Toolbutton.button image \
       [list $I(empty) \
         disabled $I(button-dis) \
@@ -278,7 +280,7 @@ namespace eval ttk::theme::sv_dark {
         }
       }
     }
-        
+
     ttk::style configure TCombobox -foreground $colors(-fg) -padding {6 1 0 2}
     ttk::style configure ComboboxPopdownFrame -borderwidth 1 -relief solid
     ttk::style map TCombobox -foreground [list disabled "#757575" pressed "#cfcfcf"]
@@ -305,7 +307,7 @@ namespace eval ttk::theme::sv_dark {
         {focus !invalid} $I(textbox-focus) \
         hover $I(textbox-hover) \
       ] -border 5
-        
+
     ttk::style element create Combobox.arrow image $I(down) -width 34 -sticky {}
 
     # Spinbox
@@ -441,13 +443,13 @@ namespace eval ttk::theme::sv_dark {
     ttk::style map Treeview -background {selected "#292929"} -foreground "selected $colors(-selfg)"
 
     ttk::style element create Treeview.field image $I(card) -border 5 -width 0 -height 0
-    
+
     ttk::style element create Treeheading.cell image \
       [list $I(heading-rest) \
         pressed $I(heading-pressed) \
         active $I(heading-hover)
       ] -border 5 -padding 14 -sticky nsew
-    
+
     ttk::style element create Treeitem.indicator image \
       [list $I(right) \
         user2 $I(empty) \

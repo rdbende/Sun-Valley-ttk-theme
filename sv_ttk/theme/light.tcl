@@ -1,5 +1,8 @@
 source [file join [file dirname [info script]] sprites_light.tcl]
 
+# Text
+option add *Text.highlightThickness 0
+
 namespace eval ttk::theme::sv_light {
   package provide ttk::theme::sv_light 2.5
 
@@ -24,7 +27,6 @@ namespace eval ttk::theme::sv_light {
   load_images [file join [file dirname [info script]] spritesheet_light.png]
 
   ttk::style theme create sun-valley-light -parent clam -settings {
-        
     # Button
     ttk::style layout TButton {
       Button.button -children {
@@ -58,7 +60,7 @@ namespace eval ttk::theme::sv_light {
     }
 
     ttk::style configure Toolbutton -padding {8 2 8 3} -anchor center
-    
+
     ttk::style element create Toolbutton.button image \
       [list $I(empty) \
         disabled $I(button-dis) \
@@ -283,7 +285,7 @@ namespace eval ttk::theme::sv_light {
     ttk::style configure TCombobox -foreground $colors(-fg) -padding {6 1 0 2}
     ttk::style configure ComboboxPopdownFrame -borderwidth 1 -relief solid
     ttk::style map TCombobox -foreground [list disabled $colors(-disfg) pressed "#636363" active "#626262"]
-    
+
     ttk::style map TCombobox -selectbackground [list \
       {readonly hover} $colors(-selbg) \
       {readonly focus} $colors(-selbg) \
