@@ -52,9 +52,9 @@ proc config_menus {w} {
       -borderwidth 1 \
       -activeborderwidth 0 \
       -background "#e7e7e7" \
-      -activebackground $ttk::theme::sv_dark::colors(-selbg) \
-      -activeforeground $ttk::theme::sv_dark::colors(-selfg) \
-      -selectcolor $ttk::theme::sv_dark::colors(-selfg)
+      -activebackground $ttk::theme::sv_light::colors(-selbg) \
+      -activeforeground $ttk::theme::sv_light::colors(-selfg) \
+      -selectcolor $ttk::theme::sv_light::colors(-selfg)
   }
 
   if {[[winfo toplevel $w] cget -menu] != $w} {
