@@ -39,7 +39,6 @@ set ::spriteinfo [list \
   button-hover 162 0 20 20 \
   button-pressed 162 20 20 20 \
   button-rest 162 40 20 20 \
-  toolbutton 5 5 20 20 \
   check-dis 162 60 20 20 \
   check-focus-hover 150 96 20 20 \
   check-focus 152 116 20 20 \
@@ -83,6 +82,7 @@ set ::spriteinfo [list \
   textbox-focus 40 212 20 20 \
   textbox-hover 60 210 20 20 \
   textbox-rest 80 210 20 20 \
+  toolbutton 100 210 20 20 \
   down 40 50 10 5 \
   empty 152 64 10 10 \
   grip 152 85 10 10 \
