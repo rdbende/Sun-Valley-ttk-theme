@@ -60,7 +60,7 @@ namespace eval ttk::theme::sv_light {
     ttk::style configure Toolbutton -padding {8 2 8 3} -anchor center
     
     ttk::style element create Toolbutton.button image \
-      [list $I(empty) \
+      [list $I(toolbutton) \
         disabled $I(button-dis) \
         pressed $I(button-pressed) \
         {active focus} $I(button-focus-hover) \
