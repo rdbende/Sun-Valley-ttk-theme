@@ -31,7 +31,7 @@ set selected_font [select_available_font $preferred_fonts]
 
 # Debug
 #puts "tcl font list: [font families]"
-puts "tcl selected font: $selected_font"
+#puts "tcl selected font: $selected_font"
 
 # Use the selected font in the theme
 font create SunValleyCaptionFont -family $selected_font -size -12
