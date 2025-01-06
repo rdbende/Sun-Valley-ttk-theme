@@ -10,15 +10,49 @@ if {[tk windowingsystem] == "win32"} {
   set static " static"
 }
 
-font create SunValleyCaptionFont -family "Segoe UI Variable$static Small" -size -12
-font create SunValleyBodyFont -family "Segoe UI Variable$static Text" -size -14
-font create SunValleyBodyStrongFont -family "Segoe UI Variable$static Text Semibold" -size -14
-font create SunValleyBodyLargeFont -family "Segoe UI Variable$static Text" -size -18
-font create SunValleySubtitleFont -family "Segoe UI Variable$static Display Semibold" -size -20
-font create SunValleyTitleFont -family "Segoe UI Variable$static Display Semibold" -size -28
-font create SunValleyTitleLargeFont -family "Segoe UI Variable$static Display Semibold" -size -40
-font create SunValleyDisplayFont -family "Segoe UI Variable$static Display Semibold" -size -68
+# Original code
+#font create SunValleyCaptionFont -family "Segoe UI Variable$static Small" -size -12
+#font create SunValleyBodyFont -family "Segoe UI Variable$static Text" -size -14
+#font create SunValleyBodyStrongFont -family "Segoe UI Variable$static Text Semibold" -size -14
+#font create SunValleyBodyLargeFont -family "Segoe UI Variable$static Text" -size -18
+#font create SunValleySubtitleFont -family "Segoe UI Variable$static Display Semibold" -size -20
+#font create SunValleyTitleFont -family "Segoe UI Variable$static Display Semibold" -size -28
+#font create SunValleyTitleLargeFont -family "Segoe UI Variable$static Display Semibold" -size -40
+#font create SunValleyDisplayFont -family "Segoe UI Variable$static Display Semibold" -size -68
 
+# Procedure to find the first available font
+proc select_available_font {font_list} {
+    foreach font $font_list {
+        if {[lsearch [font families] $font] != -1} {
+            return $font
+        }
+    }
+    return "Arial"  ; # Default fallback font
+}
+
+# List of preferred fonts
+# \u5FAE\u8EDF\u6B63\u9ED1\u9AD4 = 微軟正黑體
+set preferred_fonts {"\u5FAE\u8EDF\u6B63\u9ED1\u9AD4" "Microsoft JhengHei UI" "Noto Sans CJK TC" "Segoe UI"}
+set preferred_fonts_bold {"\u5FAE\u8EDF\u6B63\u9ED1\u9AD4 Bold" "Microsoft JhengHei UI Bold" "Noto Sans CJK TC Semibold" "Segoe UI Semibold"}
+
+# Find the best available font
+set selected_font [select_available_font $preferred_fonts]
+set selected_font_bold [select_available_font $preferred_fonts_bold]
+
+# Debug
+puts "tcl font list: [font families]"
+puts "tcl selected font: $selected_font"
+puts "tcl selected font bold: $selected_font_bold"
+
+# Use the selected font in the theme
+font create SunValleyCaptionFont -family $selected_font -size -12
+font create SunValleyBodyFont -family $selected_font -size -14
+font create SunValleyBodyStrongFont -family $selected_font_bold -size -14
+font create SunValleyBodyLargeFont -family $selected_font -size -18
+font create SunValleySubtitleFont -family $selected_font_bold -size -20
+font create SunValleyTitleFont -family $selected_font_bold -size -28
+font create SunValleyTitleLargeFont -family $selected_font_bold -size -40
+font create SunValleyDisplayFont -family $selected_font_bold -size -68
 
 proc config_entry_font {w} {
   set font_config [$w config -font]
