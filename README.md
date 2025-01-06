@@ -8,13 +8,25 @@ Make your Tkinter application look better than ever with just two lines of code!
 </div>
 
 
-## Installation [![PyPi downloads](https://static.pepy.tech/badge/sv-ttk)](https://pypi.org/project/sv-ttk)
-The theme is easily installable as a Python package
+## Installation
+Clone this repo and complie it to applied to your project!
 
 ```
-pip install sv-ttk
+python setup.py build
+python setup.py install
 ```
 
+## Edit fallback list
+Navigate to `sv_ttk\sv.tcl`
+Edit this line to make your's fallback list!
+```tcl
+# List of preferred fonts
+# \u5FAE\u8EDF\u6B63\u9ED1\u9AD4 = 微軟正黑體
+# \u860B\u65B9-\u7E41 = 蘋方-繁
+# This line (set preferred_fonts)
+set preferred_fonts {"\u5FAE\u8EDF\u6B63\u9ED1\u9AD4" "Microsoft JhengHei UI" "\u860B\u65B9-\u7E41" "Noto Sans CJK TC" "Segoe UI"}
+```
+If you want to use the unicode charaters to fallback to like CJK fonts, can use website like this: [https://r12a.github.io/app-conversion/](https://r12a.github.io/app-conversion/) to convert it to `JS/Java/C` (uncheck to not use CS6) format, and paste into the fallback font list
 
 ## Usage [![Documentation](https://img.shields.io/badge/-documentation-%23c368c4)](https://github.com/rdbende/Sun-Valley-ttk-theme/wiki/Usage-with-Python)
 > [!NOTE]
