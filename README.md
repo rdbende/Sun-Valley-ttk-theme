@@ -16,24 +16,14 @@ python setup.py build
 python setup.py install
 ```
 
-## Edit fallback list
-Navigate to `sv_ttk\sv.tcl`
-Edit this line to make your's fallback list!
-```tcl
-# List of preferred fonts
-# \u5FAE\u8EDF\u6B63\u9ED1\u9AD4 = 微軟正黑體
-# \u860B\u65B9-\u7E41 = 蘋方-繁
-# This line (set preferred_fonts)
-set preferred_fonts {"\u5FAE\u8EDF\u6B63\u9ED1\u9AD4" "Microsoft JhengHei UI" "\u860B\u65B9-\u7E41" "Noto Sans CJK TC" "Segoe UI"}
-```
-If you want to use the unicode charaters to fallback to like CJK fonts, can use website like this: [https://r12a.github.io/app-conversion/](https://r12a.github.io/app-conversion/) to convert it to `JS/Java/C` (uncheck to not use CS6) format, and paste into the fallback font list
-
 ## Usage [![Documentation](https://img.shields.io/badge/-documentation-%23c368c4)](https://github.com/rdbende/Sun-Valley-ttk-theme/wiki/Usage-with-Python)
 > [!NOTE]
 > The theme will only be applied to themable (`tkinter.ttk`) widgets, and not with the regular Tkinter widgets, they only benefit from the colorscheme.
 
 For detailed documentation, visit the [wiki page](https://github.com/rdbende/Sun-Valley-ttk-theme/wiki/Usage-with-Python).
 
+### Basic usage
+This script can apply the default Traditional Chinese OS's fallback list to the sample window
 ```python
 import tkinter
 from tkinter import ttk
@@ -44,14 +34,71 @@ root = tkinter.Tk()
 
 button = ttk.Button(root, text="Click me!")
 button.pack()
+note_text = ttk.Label(
+    root, text="This is a label with texts\n這是一個有中文字的標籤")
+note_text.pack(pady=5)
 
 # This is where the magic happens
 sv_ttk.set_theme("dark")
 
 root.mainloop()
 ```
+This will draw the window with `Microsoft JhengHei UI(微軟正黑體)` font(First entry of the default fallback font list)  
+<div align="center">
 
+![default fallback](assets/font_no_fallback.png)  
+</div>
+  
+Default fallback list in the `__init__.py` script:
+```python
+# Default font list
+_prefer_fonts = [
+    "微軟正黑體",
+    "Microsoft JhengHei UI",
+    "蘋方-繁",
+    "Noto Sans CJK TC",
+    "Segoe UI"
+]
+```
 
+### Advanced usage
+This script defined the custom fallback font list and then draw the window.  
+Try to edit the `load_fallback_list` call to make the font suit for your's project!
+```python
+import tkinter
+from tkinter import ttk
+
+import sv_ttk
+
+root = tkinter.Tk()
+
+button = ttk.Button(root, text="Click me!")
+button.pack()
+note_text = ttk.Label(
+    root, text="This is a label with texts\n這是一個有中文字的標籤")
+note_text.pack(pady=5)
+
+# Load the fallback fonts like this!
+# Don't worry, you can use the non-ascii charters
+sv_ttk.load_fallback_list([
+    "Font That Does NOT Exist",
+    "標楷體",
+    "Noto Sans CJK TC",
+    "Segoe UI"
+])
+
+# This is where the magic happens
+sv_ttk.set_theme("dark")
+
+root.mainloop()
+```
+This will draw the window with `DFKai-SB(標楷體)` font, skip the first font that not avaliable  
+<div align="center">
+
+![with custom fallback](assets/kaiu_font_fallback.png)
+
+</div>
+  
 ## Tips and tricks
 Our intention is to keep the `sv-ttk` package as simple as possible, while making it easy to integrate with other libraries.
 
