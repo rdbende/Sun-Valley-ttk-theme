@@ -1,18 +1,23 @@
 import re
+import setuptools
 from pathlib import Path
 
-from setuptools import setup
+# Read version dynamically from a _version.py file
+version_file = Path(__file__).parent / "sv_ttk" / "_version.py"
+version_globals = {}
+exec(version_file.read_text(), version_globals)
+version = version_globals["__version__"]
 
+# Read and modify long description
 long_description = re.sub(
     r"(?s)<picture>.*</picture>",
     '<img alt="Cover image" src="https://raw.githubusercontent.com/rdbende/Sun-Valley-ttk-theme/master/assets/hero_light.png">',
     (Path(__file__).parent / "README.md").read_text(),
 )
 
-
-setup(
+setuptools.setup(
     name="sv_ttk",
-    version="2.6.0",
+    version=version,  # Dynamically retrieved version
     license="MIT",
     author="rdbende",
     author_email="rdbende@proton.me",
@@ -25,8 +30,9 @@ setup(
     description="A gorgeous theme for Tkinter, based on Windows 11's UI",
     long_description=long_description,
     long_description_content_type="text/markdown",
-    packages=["sv_ttk"],
-    package_data={"sv_ttk": ["sv.tcl", "theme/*", "py.typed"]},
+    packages=setuptools.find_packages(include=["sv_ttk", "sv_ttk.*"]),  # Dynamically include package data
+    package_data={"sv_ttk": ["*.tcl", "theme/*", "py.typed"]},
+    include_package_data=True,
     python_requires=">=3.8",
     classifiers=[
         "Intended Audience :: Developers",
