@@ -8,13 +8,13 @@ Make your Tkinter application look better than ever with just two lines of code!
 </div>
 
 
-## Installation [![PyPi downloads](https://static.pepy.tech/badge/sv-ttk)](https://pypi.org/project/sv-ttk)
-The theme is easily installable as a Python package
+## Installation
+Clone this repo and complie it to applied to your project!
 
 ```
-pip install sv-ttk
+python setup.py build
+python setup.py install
 ```
-
 
 ## Usage [![Documentation](https://img.shields.io/badge/-documentation-%23c368c4)](https://github.com/rdbende/Sun-Valley-ttk-theme/wiki/Usage-with-Python)
 > [!NOTE]
@@ -22,6 +22,8 @@ pip install sv-ttk
 
 For detailed documentation, visit the [wiki page](https://github.com/rdbende/Sun-Valley-ttk-theme/wiki/Usage-with-Python).
 
+### Basic usage
+This script can apply the default Traditional Chinese OS's fallback list to the sample window
 ```python
 import tkinter
 from tkinter import ttk
@@ -32,14 +34,71 @@ root = tkinter.Tk()
 
 button = ttk.Button(root, text="Click me!")
 button.pack()
+note_text = ttk.Label(
+    root, text="This is a label with texts\n這是一個有中文字的標籤")
+note_text.pack(pady=5)
 
 # This is where the magic happens
 sv_ttk.set_theme("dark")
 
 root.mainloop()
 ```
+This will draw the window with `Microsoft JhengHei UI(微軟正黑體)` font(First entry of the default fallback font list)  
+<div align="center">
 
+![default fallback](assets/font_no_fallback.png)  
+</div>
+  
+Default fallback list in the `__init__.py` script:
+```python
+# Default font list
+_prefer_fonts = [
+    "微軟正黑體",
+    "Microsoft JhengHei UI",
+    "蘋方-繁",
+    "Noto Sans CJK TC",
+    "Segoe UI"
+]
+```
 
+### Advanced usage
+This script defined the custom fallback font list and then draw the window.  
+Try to edit the `load_fallback_list` call to make the font suit for your's project!
+```python
+import tkinter
+from tkinter import ttk
+
+import sv_ttk
+
+root = tkinter.Tk()
+
+button = ttk.Button(root, text="Click me!")
+button.pack()
+note_text = ttk.Label(
+    root, text="This is a label with texts\n這是一個有中文字的標籤")
+note_text.pack(pady=5)
+
+# Load the fallback fonts like this!
+# Don't worry, you can use the non-ascii charters
+sv_ttk.load_fallback_list([
+    "Font That Does NOT Exist",
+    "標楷體",
+    "Noto Sans CJK TC",
+    "Segoe UI"
+])
+
+# This is where the magic happens
+sv_ttk.set_theme("dark")
+
+root.mainloop()
+```
+This will draw the window with `DFKai-SB(標楷體)` font, skip the first font that not avaliable  
+<div align="center">
+
+![with custom fallback](assets/kaiu_font_fallback.png)
+
+</div>
+  
 ## Tips and tricks
 Our intention is to keep the `sv-ttk` package as simple as possible, while making it easy to integrate with other libraries.
 

@@ -6,7 +6,7 @@ from setuptools import setup
 long_description = re.sub(
     r"(?s)<picture>.*</picture>",
     '<img alt="Cover image" src="https://raw.githubusercontent.com/rdbende/Sun-Valley-ttk-theme/master/assets/hero_light.png">',
-    (Path(__file__).parent / "README.md").read_text(),
+    (Path(__file__).parent / "README.md").read_text('utf-8'),
 )
 
 
