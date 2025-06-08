@@ -45,12 +45,10 @@ jobs:
         python-version: ["3.9", "3.10", "3.11", "3.12"]
     env:
       TCLLIBPATH: ./lib
-      PYTHON: /usr/local/opt/python@${{ matrix.python-version }}/libexec/bin/python
     steps:
     - uses: actions/checkout@v3
     - run: brew install python@${{ matrix.python-version }}
     - run: brew install python-tk@${{ matrix.python-version }}
-    - run: $PYTHON --version
     - run: |
           python3 -m pip install .
           python3 -m pip install pytest
