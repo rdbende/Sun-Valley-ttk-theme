@@ -1,4 +1,4 @@
-package require Tk 8.6
+package require Tk 8.6-
 
 source [file join [file dirname [info script]] theme light.tcl]
 source [file join [file dirname [info script]] theme dark.tcl]
