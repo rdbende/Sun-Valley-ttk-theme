@@ -67,6 +67,21 @@ proc config_menus {w} {
 }
 
 
+proc fix_menus_on_windows {root} {
+ foreach w [winfo children $root] {
+    if {[winfo class $w] eq "Menu"} {
+      $w configure \
+        -background "SystemMenu" \
+        -foreground "SystemMenuText" \
+        -activebackground "SystemHighlight" \
+        -activeforeground "SystemHighlightText"
+    } else {
+      fix_menus_on_windows $w
+    }
+  } 
+}
+
+
 proc configure_colors {} {
   set theme [ttk::style theme use]
   if {$theme == "sun-valley-dark"} {
@@ -119,6 +134,10 @@ proc configure_colors {} {
       activeForeground $ttk::theme::sv_light::colors(-selfg)
 
     ttk::style map . -foreground [list disabled $ttk::theme::sv_light::colors(-disfg)]
+  }
+
+  if {[tk windowingsystem] == "win32"} {
+    fix_menus_on_windows .
   }
 }
 
