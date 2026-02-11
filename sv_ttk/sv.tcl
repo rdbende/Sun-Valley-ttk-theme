@@ -1,8 +1,5 @@
 package require Tk 8.6-
 
-source [file join [file dirname [info script]] theme light.tcl]
-source [file join [file dirname [info script]] theme dark.tcl]
-
 
 if {[tk windowingsystem] == "win32"} {
   set static ""
@@ -18,6 +15,10 @@ font create SunValleySubtitleFont -family "Segoe UI Variable$static Display Semi
 font create SunValleyTitleFont -family "Segoe UI Variable$static Display Semibold" -size -28
 font create SunValleyTitleLargeFont -family "Segoe UI Variable$static Display Semibold" -size -40
 font create SunValleyDisplayFont -family "Segoe UI Variable$static Display Semibold" -size -68
+
+
+source [file join [file dirname [info script]] theme light.tcl]
+source [file join [file dirname [info script]] theme dark.tcl]
 
 
 proc config_entry_font {w} {
